@@ -1,0 +1,607 @@
+
+$path-img: url('../images/path.svg');
+$logo-img: url('../images/Group.svg');
+$logo-face-img: url('../images/logo-face.svg');
+$awards-img: url('../images/awards.png');
+$phone-img: url('../images/phone.png');
+$login-img: url('../images/login.png');
+$sport-img: url('../images/sport.png');
+$member1-img: url('../images/member1.svg');
+$member2-img: url('../images/member2.svg');
+$member3-img: url('../images/member3.svg');
+$member4-img: url('../images/member4.svg');
+
+$bg-color: #001435;
+$work-color: #021e4d;
+$menu-hover-color: #ff6000;
+$white-color: #ffffff;
+
+$menu-height: 123px;
+$menu-small-height: 80px;
+
+
+body {
+	width: 100%;
+	margin: 0;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.line-logo {
+	position: relative;
+	top: 0;
+	margin-left: 100px;
+	width: 0;
+	height: 123px;
+	border: 2px solid $white-color;
+	margin-right: 0;
+	@media(max-width: 960px) {
+		margin-top: 20px;
+		margin-left: 0;
+	}
+}
+
+.logo-text {
+	margin-left: 100px;
+	margin-bottom: 2px;
+	position: relative;
+	top: 65px;
+	left: 0;
+	width: 370px;
+	height: 60px;
+	color: $white-color;
+	font-family: "San Francisco Display";
+	font-size: 34px;
+	font-weight: 700;
+	letter-spacing: -0.82px;
+	line-height: 31px;
+	text-transform: uppercase;
+	@media(max-width: 520px) {
+		width: 240px;
+		height: 40px;
+	}
+	@media(max-width: 960px) {
+		margin-left: auto;
+		text-align: center;
+	}
+}
+
+.center-image {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	top: 0;
+	@media(max-width: 960px) {
+		flex-direction: column;
+		align-items: center;
+	}
+	align-items: flex-start;
+}
+
+.logo-image {
+	position: relative;
+	top: 0;
+	left: 0;
+	background: $logo-img;
+	width: 233px;
+	height: 123px;
+	@media(max-width: 960px) {
+		margin: auto;
+	}
+}
+
+.header {
+	background-color: white; 
+}
+
+.path-image {
+	position: relative;
+	top: 30%;
+	width: 114px;
+	height: 57px;
+	background: $path-img;
+	@media(max-width: 520px) {
+		top: 0;
+	}
+	@media(max-width: 960px) {
+		top: 25%;
+	}
+}
+
+.mission {
+	position: relative;
+}
+
+.menu-item {
+	text-decoration: none;
+	width: 107px;
+	height: 33px;
+	color: $white-color;
+	font-family: "San Francisco Display";
+	font-size: 34px;
+	font-weight: 400;
+	letter-spacing: -0.82px;
+	line-height: 31px;
+	cursor: pointer;
+	margin: 10px 40px 10px 40px;
+	text-align: center;
+}
+
+.menu-item:hover {
+	color: $menu-hover-color;
+}
+
+.container {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	background: $bg-color;
+	z-index: 16;
+	align-items: center;
+	flex-direction: column;
+  justify-content: center;
+	@media(max-width: 960px) {
+		justify-content: center;
+	}
+}
+
+.container.content {
+	background: $white-color;
+	height: calc(100vh - #{$menu-height});
+	flex-direction: row;
+	justify-content: flex-start;
+	@media(max-width: 1400px) {
+		height: calc(100vh - #{$menu-small-height});
+	}
+}
+
+.big-logo {
+	width: 100%;
+	left: 100%;
+	background: $logo-face-img;
+	height: calc(100vh - #{$menu-height});
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	@media(max-width: 1400px) {
+		height: calc(100vh - #{$menu-small-height});
+	}
+}
+
+.big-logo.fixed {
+	margin-top: $menu-height;
+	@media(max-height: 1400px) {
+		margin-top: $menu-small-height;
+	}
+}
+
+.big-logo.team {
+	-webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.container.content.fixed {
+	height: 100vh;
+}
+
+$awards-img-width: 768px;
+$awards-img-height: 147px;
+
+.photos {
+	background: $awards-img;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 768px;
+	height: 147px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	margin: 35px 0 35px 0;
+	@media(max-width: 1700px) {
+		width: calc(#{$awards-img-width} / 2.2);
+		height: calc(#{awards-img-height} / 2.2);
+		margin-top: 15px;
+	}
+	@media(max-width: 480px) {
+		width: calc(#{$awards-img-width} / 3);
+		height: calc(#{awards-img-height} / 3);
+	}
+}
+
+h1 {
+	width: 19%;
+	height: 3%;
+	color: #001435;
+	font-family: "San Francisco Display";
+	font-size: 45px;
+	font-weight: 700;
+	letter-spacing: -1.09px;
+	line-height: 31px;
+	text-transform: uppercase;
+	@media(max-width: 1700px) {
+		width: 70%;
+		font-size: 30px;
+		font-weight: 550;
+		margin-bottom: 15px;
+		margin-top: 35px;
+	}
+	@media(max-width: 520px) {
+		width: 70%;
+		font-size: 35px;
+		font-weight: 600;
+	}
+}
+
+h2 {
+	max-width: 606px;
+	height: 31px;
+	color: $white-color;
+	font-family: "San Francisco Display";
+	font-size: 35px;
+	font-weight: 700;
+	letter-spacing: -0.84px;
+	line-height: 31px;
+	text-transform: uppercase;
+	margin: 20px 0;
+	@media(max-width: 1600px) {
+		font-size: 30px;
+		font-weight: 600;
+		margin-bottom: 5px;
+	}
+	@media(max-width: 1400px) {
+		max-width: 350px;
+		font-size: 20px;
+		font-weight: 400;
+		margin-bottom: 5px;
+	}
+	@media(max-width: 1000px) {
+		max-width: 150px;
+		font-size: 14px;
+		font-weight: 200;
+		margin-bottom: 5px 15px 5px 15px;
+	}
+}
+
+.jobs-item {
+	width: auto;
+	@media(max-width: 1000px) {
+		margin: 15px 15px 15px 20;
+	}
+}
+
+p.light {
+	width: 606px;
+	height: auto;
+	color: $white-color;
+	font-family: "SF Pro Display";
+	font-size: 25px;
+	font-weight: 300;
+	letter-spacing: -0.6px;
+	margin: 0;
+	@media(max-width: 1600px) {
+		max-width: 500px;
+	}
+	@media(max-width: 1400px) {
+		max-width: 370px;
+		font-size: 15px;
+	}
+	@media(max-width: 1000px) {
+		max-width: 100px;
+	}
+	@media(max-width: 720px) {
+		max-width: 300px;
+	}
+}
+
+h2.active {
+	color: $menu-hover-color;
+	margin-top: 30px;
+	margin-top: 0;
+	@media(max-width: 1000px) {
+		margin: 20px 0;
+	}
+}
+
+.card-text {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	position: relative;
+	z-index: 1;
+	top: 0;
+	left: 13%;
+}
+
+.card-text.fixed {
+	margin-top: $menu-height;
+	@media(max-height: 1400px) {
+		margin-top: $menu-small-height;
+	}
+}
+
+p {
+	width: 40%;
+	height: 2%;
+	color: #000000;
+	font-family: "San Francisco Display";
+	font-size: 35px;
+	font-weight: 400;
+	letter-spacing: -0.84px;
+	z-index: 0;
+	@media(max-width: 1700px) {
+		width: 70%;
+		font-size: 30px;
+		font-weight: 350;
+		margin-top: 20px;
+	}
+	@media(max-width: 520px) {
+		width: 70%;
+		font-size: 25px;
+		font-weight: 300;
+	}
+	@media(max-width: 1400px) {
+		idth: 60%;
+		font-size: 20px;
+		font-weight: 200;
+	}
+}
+
+.container.menu {
+	flex-direction: row;
+	justify-content: flex-start;
+	height: $menu-height;
+	z-index: 120;
+	opacity: 1.0;
+	transition: all 0.3s ease 0s;
+	@media(max-width: 1400px) {
+		height: $menu-small-height;
+	}
+}
+
+.container.menu.fixed {
+	position: fixed;
+	top: 0;
+}
+
+.burger-button {
+	display: none;
+	margin: 20px 20px 20px 40px;
+}
+
+@media(max-width: 640px) {
+	.burger-button {
+		display: block;
+		position: relative;
+		width: 40px;
+		height: 30px;
+	}
+	.burger-button:before,
+	.burger-button:after {
+		content: '';
+		position: absolute;
+		background-color: $white-color;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		transition: all 0.3s ease 0s;
+	}
+	.burger-button span {
+		position: absolute;
+		background-color: $white-color;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		top: 14px;
+		transition: all 0.3s ease 0s;
+	}
+	.burger-button:before {
+		top: 0;
+	}
+	.burger-button:after {
+		bottom: 0;
+	}
+	.menu-item {
+		display: none
+	}
+}
+
+.burger-button.active:before {
+	transform: rotate(45deg);
+	top: 13px;
+}
+.burger-button.active:after {
+	transform: rotate(-45deg);
+	top: 13px;
+}
+@media(max-width: 1700px) {
+		max-width: 30%;
+		max-height: 90%;
+	}
+
+.burger-button.active span {
+	transform: scale(0);
+}
+
+.menu-item.active {
+	display: block;
+	text-align: left;
+}
+
+.container.menu.active {
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	height: 40vh;
+}
+
+.examples {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	z-index: 50;
+	@media (max-width: 1600px) {
+		margin-left: 100px;
+	}
+	@media(max-width: 1400px) {
+		margin-left: 60px;
+	}
+	@media(max-width: 1000px) {
+		margin-left: 0;
+	}
+	@media(max-width: 720px) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+
+.jobs {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	margin: 0 20px 0 100px;
+	@media(max-width: 1800px) {
+		margin: 0 25px 0 50px;
+	}
+	@media(max-width: 1400px) {
+		margin: 0 15px 0 35px;
+	}
+	@media(max-width: 1000px) {
+		flex-direction: row;
+		margin-left: 0;
+	}
+	@media(max-width: 720px) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+$se-img-width: 241px;
+$se-img-height: 680px;
+
+.sport-example {
+	margin-top: 50px;
+	margin-right: 25px;
+	position: relative;
+	width: $se-img-width;
+	height: $se-img-height;
+	background: $sport-img;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	@media(max-width: 1800px) {
+		width: calc(#{$se-img-width} / 1.5);
+		height: calc(#{$se-img-height} / 1.5);
+	}
+	@media(max-width: 1400px) {
+		width: calc(#{$se-img-width} / 1.8);
+		height: calc(#{$se-img-height} / 1.8);
+	}
+}
+
+$le-img-height: 522px;
+
+.login-example {
+	margin-top: 50px;
+	margin-right: 50px;
+	position: relative;
+	width: $se-img-width;
+	height: $le-img-height;
+	background: $login-img;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	@media(max-width: 1800px) {
+		width: calc(#{$se-img-width} / 1.5);
+		height: calc(#{$le-img-height} / 1.5);
+	}
+	@media(max-width: 1400px) {
+		margin-right: 30px;
+		width: calc(#{$se-img-width} / 1.8);
+		height: calc(#{$le-img-height} / 1.8);
+	}
+}
+
+$pe-img-width: 427px;
+$pe-img-height: 845px;
+
+.phone-example {
+	margin-top: 50px;
+	margin-right: 50px;
+	position: relative;
+	width: $pe-img-width;
+	height: $pe-img-height;
+	background: $phone-img;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	@media(max-width: 1800px) {
+		width: calc(#{$pe-img-width} / 1.5);
+		height: calc(#{$pe-img-height} / 1.5);
+	}
+	@media(max-width: 1400px) {
+		margin-right: 30px;
+		width: calc(#{$pe-img-width} / 1.8);
+		height: calc(#{$pe-img-height} / 1.8);
+	}
+	@media(max-width: 1000px) {
+		margin-left: 20px;
+	}
+}
+
+.container.work {
+	flex-direction: row;
+	height: calc(100vh - #{$menu-height});
+	background: $work-color;
+	@media(max-width: 1400px) {
+		padding-top: $menu-small-height;
+		height: calc(100vh - #{$menu-small-height});
+	}
+	@media(max-width: 1000px) {
+		flex-direction: column;
+	}
+	@media(max-width: 720px) {
+		height: calc(300vh - #{$menu-small-height} * 3);
+	}
+}
+
+#member1 {
+	background: $member1-img;
+}
+
+#member2 {
+	background: $member2-img;
+}
+
+#member3 {
+	background: $member3-img;
+}
+
+#member4 {
+	background: $member4-img;
+}
+
+.member-photo {
+	position: relative;
+	width: 205px;
+	height: 157px;
+	top: 0;
+	left: 0;
+}
+
+.card-text.members {
+	display: flex;
+	flex-direction: column;
+}
+
+.group-members {
+	display: flex;
+	flex-direction: row;
+}
