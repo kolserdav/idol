@@ -4,13 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Uglify = require("uglifyjs-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 
+
 module.exports = {
 	 entry: {
     module: "./src/js/module.js",
   },
   output: {
     filename: 'js/[name].[hash:16].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   optimization: {
     minimizer: [
@@ -25,7 +26,9 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         options: {
-            presets: ["@babel/preset-env"]
+            presets: [
+            "@babel/preset-env"
+            ]
         },
         exclude: /node_modules/
 	    },
@@ -33,7 +36,9 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-            name: 'images/[name].[ext]?[hash]'
+            name: '[name].[ext]?[hash]',
+            outputPath: 'images/',
+            publicPath: 'images'
         }
 	    },
 	    {

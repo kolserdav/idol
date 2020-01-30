@@ -8,7 +8,6 @@
 	function toAnchor(selector) {
 		var element = document.querySelector('#' + selector);
 		element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
 	}
 </script>
 <body>
@@ -22,7 +21,7 @@
 				</div>
 				<a href="javascript:toAnchor('mission')" class="path-image"></a>
 			</div>
-		<header>
+		</header>
 		<section id="mission" class="mission">
 			<div class="container menu">
 				<div class="burger-button"><span></span>></div>
@@ -45,40 +44,40 @@
 			<div class="container work">
 				<div class="jobs">
 					<div class="jobs-item">
-						<h2 class="active">Russian talents</h2>
+						<h2 id="1">Russian talents</h2>
 						<p class="light">
 							Applications create to find activities for childrens, parents and teachers.
 						</p>
 					</div>
 					<div class="jobs-item">
-						<h2>Ulindr</h2>
+						<h2 id="2">Ulindr</h2>
 						<p class="light">
 							Dating application startup.(Madrid, San Francisco)
 						</p>
 					</div>
 					<div class="jobs-item">	
-						<h2>gazprom seha liga</h2>
+						<h2 id="3">gazprom seha liga</h2>
 						<p class="light">
 							Applications for Gazprom SEHA Liga. Create for fans of handball.
 						</p>
 					</div>
 					<div class="jobs-item">	
-						<h2>37 clinic</h2>
+						<h2 id="4">37 clinic</h2>
 						<p class="light">
 							Medicine company including chats with doctors. (Berlin (Germany)) 
 						</p>
 					</div>
 					<div class="jobs-item">	
-						<h2>MInt Food</h2>
+						<h2 id="5">MInt Food</h2>
 						<p class="light">
 							Food delivery company. (St. Petersburg (Russia))
 						</p>
 					</div>			
 				</div>
 				<div class="examples">
-					<div class="phone-example"></div>
-					<div class="login-example"></div>
-					<div class="sport-example"></div>
+					<div class="carousel">
+
+					</div>
 				</div>
 			</div>
 		</section>
@@ -86,9 +85,9 @@
 			<div class="container content">
 				<div class="big-logo team"></div>
 				<div class="our-team">
-					<div class="card-text">
-						<h1>Our team</h1>
-						<p>
+					<div class="card-text team">
+						<h1 class="team">Our team</h1>
+						<p class="team">
 							Talented, dedicated, born to create — we enjoy to make app’s with clean, quality code and clever design.
 						</p>
 					</div>
