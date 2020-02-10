@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Uglify = require("uglifyjs-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
-
+const express = require('express');
 
 module.exports = {
 	 entry: {
@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].[hash:16].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
     minimizer: [
@@ -53,7 +53,7 @@ module.exports = {
   },
   plugins: [
   	new HtmlWebpackPlugin({
-  		filename: 'index.html',
+  		filename: (process.env.NODE_ENV !== 'development')? 'index_[hash:16].html' : 'index.html',
       template: './src/index.html',
       minify: true
     }),
@@ -61,11 +61,12 @@ module.exports = {
     new CleanWebpackPlugin()
   ],
   devServer: {
-    stats: "normal",
     host: "localhost",
     port: 8088,
-    open: true,
     hot: true,
-    inline: true
+    inline: true,
+    before: function(app) {
+      app.use('/static', express.static('src/static'));
+    },
   }
 };

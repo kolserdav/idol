@@ -3,6 +3,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <script>
 	function toAnchor(selector) {
@@ -12,7 +13,7 @@
 </script>
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header class="header" id="header">
 			<div class="container">
 				<div class="center-image">
 					<div class="logo-image"></div>
@@ -24,7 +25,7 @@
 		</header>
 		<section id="mission" class="mission">
 			<div class="container menu">
-				<div class="burger-button"><span></span>></div>
+				<div class="burger-button"><span></span></div>
 				<a href="javascript:toAnchor('mission')" class="menu-item">Mission</a>
 				<a href="javascript:toAnchor('work')" class="menu-item">Work</a>
 				<a href="javascript:toAnchor('team')" class="menu-item">Team</a>
@@ -44,7 +45,7 @@
 			<div class="container work">
 				<div class="jobs">
 					<div class="jobs-item">
-						<h2 id="1">Russian talents</h2>
+						<h2 id="6">Russian talents</h2>
 						<p class="light">
 							Applications create to find activities for childrens, parents and teachers.
 						</p>
@@ -72,9 +73,17 @@
 						<p class="light">
 							Food delivery company. (St. Petersburg (Russia))
 						</p>
+					</div>	
+					<div class="jobs-item">	
+						<h2 id="1">Beer</h2>
+						<p class="light">
+							Beer description
+						</p>
 					</div>			
 				</div>
 				<div class="examples">
+					<div class="preload-one-image"></div>
+					<div class="preload-all-images"></div>
 					<div class="carousel">
 
 					</div>
@@ -120,6 +129,33 @@
 				</div>
 			</div>
 		</section>
+		<section id="contacts">
+			<div class="container contacts">
+				<div class="contacts-logo">
+					<div class="card-text contacts">
+						<div class="contacts">
+							<h1 class="contacts">Contacts</h1>
+							<p class="contacts">+7 (812) 333 77 88 <br>info@appsidol.com <br>St. Petersburg, Russia</p>
+						</div>
+						<a href="javascript:toAnchor('header')" class="path-image bottom"></a>
+					</div>
+					<div class="big-logo contacts"></div>
+				</div>
+				<div class="map" id="map">
+				
+				</div>
+			</div>	
+
+		</section>
+		<script>
+			function initMap() {
+			  var uluru = {lat: 59.93863, lng: 30.31413};
+			  var map = new google.maps.Map(
+			      document.getElementById('map'), {zoom: 12, center: uluru});
+			  var marker = new google.maps.Marker({position: uluru, map: map});
+			}
+    </script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZKammD-89k3aYI3mRsRAFKzLP66to7MU&callback=initMap&language=en&region=UK"type="text/javascript"></script>
 	</div>
 </body>
 </html>

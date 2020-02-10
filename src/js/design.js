@@ -97,35 +97,76 @@ export function Carousel() {
 	};
 
 	const showImage = async (id) => {
-		const img = getActualImage(id);
+
 		const divCarousel = document.querySelector('div[class="carousel"]');
-
-		if (divCarousel.firstElementChild) {
-			await new Promise(resolve => {
-				divCarousel.firstElementChild.classList.add('hide');
-				setTimeout(() => {
-					resolve(true);
-				}, 1000);
-			});
+		let image;
+		const images = [];
+		const preloadBlock = document.querySelector('div[class="preload-one-image"]');
+		const big = window.innerWidth > 620;
+		const imagesCount = (big)? 2 : 0;
+		for (let i = 0; i <= imagesCount; i ++) {
+			$.clicks[id] = i;
+			const img = getActualImage(id);
+			if (divCarousel.firstElementChild) {
+				await new Promise(resolve => {
+					divCarousel.firstElementChild.classList.add('hide');
+					if (big) {
+						divCarousel.firstElementChild.nextSibling.classList.add('hide');
+						divCarousel.firstElementChild.nextSibling.nextSibling.classList.add('hide');
+					}
+					setTimeout(() => {
+						resolve(true);
+					}, 700);
+				});
+			}
+			image = document.createElement('img');
+			image.src = img.src;
+			image.title = img.title;
+			image.alt = img.alt;
+			image.setAttribute('class', `work-image`);
+			let parentWidth = parseInt(divCarousel.offsetWidth);
+			let parentHeight = parseInt(divCarousel.offsetHeight);
+			parentWidth = (big)? parentWidth / 3 : parentWidth; 
+			parentHeight = (big)? parentHeight / 1.5 : parentHeight;
+			const size = getImageSize({ width: parentWidth, height: parentHeight },
+				{ width: img.width, height: img.height });
+			image.width = size.width;
+			image.height = size.height;
+			divCarousel.innerHTML = '';
+			preloadBlock.appendChild(image);
+			images.push(image);
 		}
-
-		const image = document.createElement('img');
-		image.src = img.src;
-		image.title = img.title;
-		image.alt = img.alt;
-		image.setAttribute('class', 'work-image');
-		const parentWidth = parseInt(divCarousel.offsetWidth);
-		const parentHeight = parseInt(divCarousel.offsetHeight);
-		const size = getImageSize({ width: parentWidth, height: parentHeight },
-			{ width: img.width, height: img.height });
-		image.width = size.width;
-		image.height = size.height;
-		divCarousel.innerHTML = '';
-		divCarousel.appendChild(image);
-		const imageP = divCarousel.firstElementChild;
-		setTimeout(() => {
+		// По загрузке стартового изображения определяется подгрузка остальных картинок
+		image.onload = () => {
+			// Вставляет первое изображение карусели
+			preloadBlock.innerHTML = '';
+			divCarousel.appendChild(images[0]);
+			const imageP = divCarousel.firstElementChild;
 			imageP.classList.add('show');
-		}, 0);
+			if (big) {
+				divCarousel.appendChild(images[1]);
+				divCarousel.appendChild(images[2]);
+				const secondP = imageP.nextSibling;
+				console.log(secondP)
+				secondP.classList.add('show');
+				secondP.nextSibling.classList.add('show');
+			}
+			// Подгружает все изображения для карусели
+			if (!$.imagesOnload) {
+				$.imagesOnload = true;
+				const preloadBlock = document.querySelector('div[class="preload-all-images"]');
+				for (let prop in Images) {
+					for (let i = 0; Images[prop][i]; i++) {
+						const image = document.createElement('img');
+						const img = Images[prop][i];
+						image.src = img.src;
+						image.width = img.width;
+						image.height = img.height;
+						preloadBlock.appendChild(image);
+					}
+				}
+			}
+		};
 	};
 
 	showImage(1);
