@@ -105,7 +105,7 @@ export function Carousel() {
 		const big = window.innerWidth > 620;
 		const imagesCount = (big)? 2 : 0;
 		for (let i = 0; i <= imagesCount; i ++) {
-			$.clicks[id] = i;
+			if (big) $.clicks[id] = i;
 			const img = getActualImage(id);
 			if (divCarousel.firstElementChild) {
 				await new Promise(resolve => {
@@ -147,7 +147,6 @@ export function Carousel() {
 				divCarousel.appendChild(images[1]);
 				divCarousel.appendChild(images[2]);
 				const secondP = imageP.nextSibling;
-				console.log(secondP)
 				secondP.classList.add('show');
 				secondP.nextSibling.classList.add('show');
 			}
