@@ -14,7 +14,7 @@ const appHeight = () => {
     doc.style.setProperty('--app-height', `${window.innerHeight}px`);
     document.documentElement.style.height = window.innerHeight;
 }
-window.addEventListener('resize', appHeight)
+//window.addEventListener('resize', appHeight)
 appHeight()
 console.log(document.documentElement.clientHeight)
 

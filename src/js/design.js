@@ -135,6 +135,12 @@ export function Carousel() {
 			divCarousel.innerHTML = '';
 			preloadBlock.appendChild(image);
 			images.push(image);
+			if (!$.resizeListener) {
+				$.resizeListener = true;
+				window.addEventListener('resize', () => {
+					showImage(id);
+				});
+			}
 		}
 		// По загрузке стартового изображения определяется подгрузка остальных картинок
 		image.onload = () => {

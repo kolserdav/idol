@@ -33,6 +33,17 @@ p.contacts {
 	width: 100%;
 	height: auto;
 	color: $white-color;
+	@media(max-width: 960px) {
+		width: 80%;
+	}
+	@media(max-width: 720px) {
+		width: 70%;
+	}
+	@media(max-width: 500px) {
+		width: 50%;
+		letter-spacing: -0.3px;
+		margin-right: 0;
+	}
 }
 
 .container.contacts {
@@ -95,9 +106,14 @@ p.contacts {
 		height: calc(100vh - (#{$menu-small-height} / 2));
 		margin-top: calc(40vh - (#{$menu-small-height} / 2));
 	}
+	@media(max-width: 720px) {
+		height: calc(100vh - (#{$menu-small-height} / 2));
+		margin-top: 2px;
+	}
 }
 
 .big-logo.contacts {
+	top: 0;
 	z-index: 111;
 	width: 50%;
 	background: $logo-face-dark-img;
@@ -106,16 +122,34 @@ p.contacts {
 	background-size: contain;
 }
 
+$h1-contacts-font-size: 45px;
+$h1-contacts-font-weight: 700;
+$h1-contacts-width: 370px;
+
 h1.contacts {
-	width: 370px;
-	height: 1em;
+	width: $h1-contacts-width;
 	color: #ffffff;
 	font-family: "San Francisco Display";
-	font-size: 45px;
-	font-weight: 700;
+	font-size: $h1-contacts-font-size;
+	font-weight: $h1-contacts-font-weight;
 	letter-spacing: -1.09px;
 	line-height: 31px;
 	text-transform: uppercase;
+	@media(max-width: 960px) {
+		font-size: calc(#{$h1-contacts-font-size} / 3);
+		font-weight: calc(#{$h1-contacts-font-weight} / 1.5);
+		width: calc(#{$h1-contacts-width} / 1.5);
+	}
+	@media(max-width: 720px) {
+		font-size: calc(#{$h1-contacts-font-size} / 3);
+		font-weight: calc(#{$h1-contacts-font-weight} / 2);
+		width: calc(#{$h1-contacts-width} / 2);
+	}
+	@media(max-width: 500px) {
+		font-size: calc(#{$h1-contacts-font-size} / 4);
+		font-weight: calc(#{$h1-contacts-font-weight} / 3	);
+		width: calc(#{$h1-contacts-width} / 3);
+	}
 }
 
 $line-logo-height: 123px;
@@ -414,17 +448,18 @@ h1 {
 	}
 }
 
+$h2-height: 31px;
+$h2-line-height: 31px;
 
 h2 {
 	cursor: pointer;
 	max-width: 100%;
-	height: 31px;
 	color: $white-color;
 	font-family: "San Francisco Display";
 	font-size: 35px;
 	font-weight: 700;
 	letter-spacing: -0.84px;
-	line-height: 31px;
+	line-height: $h2-line-height;
 	text-transform: uppercase;
 	@media(max-width: 1600px) {
 		font-size: 30px;
@@ -436,19 +471,23 @@ h2 {
 		font-weight: calc(#{$h1-font-width} / 1.5);
 		margin-top: calc(#{$h1-margin-top} / 2);
 		margin-bottom: calc(#{$h1-margin-bottom} / 2);
+		margin-bottom: 2px;
+		line-height: calc(#{$h2-line-height} / 1.5);
 	}
 	@media(max-width: 720px) {
 		font-size: calc(#{$h1-font-height} / 3);
 		font-weight: calc(#{$h1-font-width} / 2);
 		margin-top: calc(#{$h1-margin-top} / 3);
 		margin-bottom: calc(#{$h1-margin-bottom} / 3);
+		line-height: calc(#{$h2-line-height} / 2);
 	}
 	@media(max-width: 500px) {
 		width: 70%;
 		font-size: calc(#{$h1-font-height} / 4);
-		font-weight: calc(#{$h1-font-width} / 2	);
+		font-weight: calc(#{$h1-font-width} / 3	);
 		margin-top: calc(#{$h1-margin-top} / 4);
 		margin-bottom: calc(#{$h1-margin-bottom} / 4);
+		line-height: calc(#{$h2-line-height} / 3);
 	}
 }
 
@@ -464,7 +503,7 @@ h2:active {
 }
 
 .jobs-item {
-	width: 100%;
+	width: 90%;
 }
 
 $p-font-size: 35px;
@@ -565,11 +604,6 @@ p {
 		font-weight: calc(#{$p-font-width} / 4);
 		margin-top: calc(#{$p-margin-top} / 4);
 	}
-	@media(max-width: 500px) {
-		font-size: calc(#{$p-font-size} / 5);
-		font-weight: calc(#{$p-font-width} / 5);
-		margin-top: calc(#{$p-margin-top} / 5);
-	}
 }
 
 .container.menu {
@@ -654,13 +688,23 @@ p {
 .menu-item.active {
 	display: block;
 	text-align: left;
+	font-size: 12px;
+	height: auto;
+	@media(max-width: 720px) {
+		font-size: 10px;
+		height: 12px;
+	}
+	margin: 2px;
 }
 
 .container.menu.active {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	height: 40vh;
+	height: 60%;
+	@media(max-width: 500px) {
+		height: 80%;
+	}
 }
 
 .examples {
@@ -687,7 +731,6 @@ p {
 	@media(max-width: 1000px) {
 		flex-direction: row;
 		margin-left: 20px;
-		width: 100%;
 	}
 	@media(max-width: 720px) {
 		flex-direction: column;
@@ -796,6 +839,11 @@ $member-img-margin: 20px;
 		height: calc(#{$member-img-height} / 6);
 		margin: calc(#{$member-img-margin} / 6);
 	}
+	@media(max-width: 400px) {
+		width: calc(#{$member-img-width} / 7.5);
+		height: calc(#{$member-img-height} / 7.5);
+		margin: calc(#{$member-img-margin} / 7.5);
+	}
 }
 
 $small-font-size: 1.2em;
@@ -828,14 +876,25 @@ small {
 	}
 }
 
+$card-text-members: 60%;
+
 .card-text.members {
-	height: 60%;
+	height: $card-text-members;
 	width: 100%;
 	top: 0;
 	left: 0;
 	margin-right: 0;
 	display: flex;
 	flex-direction: column;
+	@media(max-width: 960px) {
+		height: calc(#{$card-text-members} / 1.5);
+	}
+	@media(max-width: 720px) {
+		height: calc(#{$card-text-members} / 2);
+	}
+	@media(max-width: 500px) {
+		height: calc(#{$card-text-members} / 3);
+	}
 }
 
 .group-members {
@@ -920,10 +979,18 @@ small {
 	}
 }
 
+$card-text-team-margin-top: 20px;
+
 .card-text.team {
 	left: 0;
 	top: 0;
-	margin-top: 20px;
+	margin-top: $card-text-team-margin-top;
+	@media(max-width: 960px) {
+		margin-top: calc(#{$card-text-team-margin-top} / 1.5);
+	}
+	@media(max-width: 720px) {
+		margin-top: 0;
+	}
 }
 
 $em: 35px;
@@ -947,6 +1014,7 @@ h1.team {
 
 p.team {
 	width: 80%;
+	margin: 2px;
 	@media(max-width: 960px) {
 		font-size: calc(#{$em} / 2);
 	}
@@ -955,6 +1023,9 @@ p.team {
 	}
 	@media(max-width: 500px) {
 		font-size: calc(#{$em} / 4);
+	}
+	@media(max-width: 400px) {
+		font-size: calc(#{$em} / 5);
 	}
 }
 
