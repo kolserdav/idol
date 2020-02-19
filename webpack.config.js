@@ -5,6 +5,7 @@ const Uglify = require("uglifyjs-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const express = require('express');
 
+
 module.exports = {
 	 entry: {
     module: "./src/js/module.js",
@@ -42,7 +43,7 @@ module.exports = {
         }
 	    },
 	    {
-        test: /\.scss$/i,
+        test: /\.(scss|css)$/i,
         use: [
         	'style-loader',
           'css-loader',
@@ -58,7 +59,7 @@ module.exports = {
       minify: true
     }),
     new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
   devServer: {
     host: "localhost",

@@ -2,19 +2,20 @@
 if (process.env.NODE_ENV !== 'production') {
     require('file-loader!../index.html');
 }
+
 const container = document.querySelector('div[class="container"]');
 const containerHeight = container.clientHeight;
 const windowHeight = window.innerHeight;
 const containerWidth = container.clientWidth;
 const windowWidth = window.innerWidth;
 const appHeight = () => {
-	console.log(container.clientWidth)
-
+	console.log('width', container.clientWidth)
+	console.log('height', container.clientHeight)
     const doc = document.documentElement
     doc.style.setProperty('--app-height', `${window.innerHeight}px`);
     document.documentElement.style.height = window.innerHeight;
 }
-//window.addEventListener('resize', appHeight)
+//document.addEventListener('resize', appHeight)
 appHeight()
 console.log(document.documentElement.clientHeight)
 

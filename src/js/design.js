@@ -68,29 +68,30 @@ export function Carousel() {
 
 	const getImageSize = (parent, image) => {
 		const size = {};
+		const shift = 15;
 		let coeff = image.width / image.height;
 		if (parent.width >= image.width && parent.height >= image.height) {
-			size.width = image.width;
-			size.height = image.height;
+			size.width = image.width - shift;
+			size.height = image.height - shift;
 		}
 		else if (parent.width > image.width && parent.height < image.height) {
-			size.height = parent.height;
-			size.width = parent.height * coeff;
+			size.height = parent.height - shift;
+			size.width = parent.height * coeff - shift;
 		}
 		else if (parent.width < image.width && parent.height > image.height) {
-			size.width = parent.width;
-			size.height = parent.width / coeff;
+			size.width = parent.width - shift;
+			size.height = parent.width / coeff -shift;
 		}
 		else if (parent.width < image.width && parent.height < image.height) {
-			const diffWidth = image.width - parent.width;
-			const diffHeight = image.height - parent.height;
+			const diffWidth = image.width - parent.width - shift;
+			const diffHeight = image.height - parent.height - shift;
 			if (diffWidth >= diffHeight) {
-				size.width = parent.width;
-				size.height = parent.width / coeff;
+				size.width = parent.width - shift;
+				size.height = parent.width / coeff - shift;
 			}
 			else {
-				size.height = parent.height;
-				size.width = parent.height * coeff;
+				size.height = parent.height - shift;
+				size.width = parent.height * coeff - shift;
 			}
 		}
 		return size;
@@ -103,16 +104,16 @@ export function Carousel() {
 		const images = [];
 		const preloadBlock = document.querySelector('div[class="preload-one-image"]');
 		const big = window.innerWidth > 620;
-		const imagesCount = (big)? 2 : 0;
+		const imagesCount = (big)? 1 : 0;
 		for (let i = 0; i <= imagesCount; i ++) {
 			if (big) $.clicks[id] = i;
 			const img = getActualImage(id);
 			if (divCarousel.firstElementChild) {
 				await new Promise(resolve => {
 					divCarousel.firstElementChild.classList.add('hide');
-					if (big) {
+					if (big && divCarousel.firstElementChild.nextSibling) {
 						divCarousel.firstElementChild.nextSibling.classList.add('hide');
-						divCarousel.firstElementChild.nextSibling.nextSibling.classList.add('hide');
+						//divCarousel.firstElementChild.nextSibling.nextSibling.classList.add('hide');
 					}
 					setTimeout(() => {
 						resolve(true);
@@ -138,6 +139,9 @@ export function Carousel() {
 			if (!$.resizeListener) {
 				$.resizeListener = true;
 				window.addEventListener('resize', () => {
+					const container = document.querySelector('div[class="container"]');
+					console.log('width', container.clientWidth)
+					console.log('height', container.clientHeight)
 					showImage(id);
 				});
 			}
@@ -151,10 +155,10 @@ export function Carousel() {
 			imageP.classList.add('show');
 			if (big) {
 				divCarousel.appendChild(images[1]);
-				divCarousel.appendChild(images[2]);
+				//divCarousel.appendChild(images[2]);
 				const secondP = imageP.nextSibling;
 				secondP.classList.add('show');
-				secondP.nextSibling.classList.add('show');
+				//secondP.nextSibling.classList.add('show');
 			}
 			// Подгружает все изображения для карусели
 			if (!$.imagesOnload) {
