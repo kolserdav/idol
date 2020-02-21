@@ -66,32 +66,33 @@ export function Carousel() {
 		return image;
 	};
 
-	const getImageSize = (parent, image) => {
+	const getImageSize = (parent, image, big = false) => {
 		const size = {};
-		const shift = 15;
 		let coeff = image.width / image.height;
 		if (parent.width >= image.width && parent.height >= image.height) {
-			size.width = image.width - shift;
-			size.height = image.height - shift;
+			size.width = image.width;
+			size.height = image.height;
 		}
 		else if (parent.width > image.width && parent.height < image.height) {
-			size.height = parent.height - shift;
-			size.width = parent.height * coeff - shift;
+			size.height = parent.height;
+			size.width = parent.height * coeff;
 		}
 		else if (parent.width < image.width && parent.height > image.height) {
-			size.width = parent.width - shift;
-			size.height = parent.width / coeff -shift;
+			size.width = parent.width;
+			size.height = parent.width / coeff;
 		}
 		else if (parent.width < image.width && parent.height < image.height) {
-			const diffWidth = image.width - parent.width - shift;
-			const diffHeight = image.height - parent.height - shift;
+			const diffWidth = image.width - parent.width;
+			const diffHeight = image.height - parent.height;
 			if (diffWidth >= diffHeight) {
-				size.width = parent.width - shift;
-				size.height = parent.width / coeff - shift;
+				size.width = parent.width;
+				size.height = parent.width / coeff;
 			}
 			else {
-				size.height = parent.height - shift;
-				size.width = parent.height * coeff - shift;
+				// Под наши фотки здесь срабатывает в основном
+				const sh = (big)? parent.height / 5.0 : 0;
+				size.height = parent.height + sh;
+				size.width = size.height * coeff;
 			}
 		}
 		return size;
@@ -125,17 +126,18 @@ export function Carousel() {
 			image.title = img.title;
 			image.alt = img.alt;
 			image.setAttribute('class', `work-image`);
-			let parentWidth = parseInt(divCarousel.offsetWidth);
-			let parentHeight = parseInt(divCarousel.offsetHeight);
+			let parentWidth = parseInt(divCarousel.clientWidth);
+			let parentHeight = parseInt(divCarousel.clientHeight);
 			parentWidth = (big)? parentWidth / 3 : parentWidth; 
 			parentHeight = (big)? parentHeight / 1.5 : parentHeight;
 			const size = getImageSize({ width: parentWidth, height: parentHeight },
-				{ width: img.width, height: img.height });
+				{ width: img.width, height: img.height }, big);
 			image.width = size.width;
 			image.height = size.height;
 			divCarousel.innerHTML = '';
 			preloadBlock.appendChild(image);
 			images.push(image);
+			// Прослушиватель масштабирования для отладки TODO закоментировать на деплое
 			if (!$.resizeListener) {
 				$.resizeListener = true;
 				window.addEventListener('resize', () => {

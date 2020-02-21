@@ -1,6 +1,6 @@
 
-app = () => {
-	console.log('app')
+const App = () => {
+	
 }
 
-module.exports = app;
+export default App;

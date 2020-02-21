@@ -9,9 +9,11 @@ $member1-img: url('../images/member1.svg');
 $member2-img: url('../images/member2.svg');
 $member3-img: url('../images/member3.svg');
 $member4-img: url('../images/member4.svg');
+$team-img: url('../images/team.png');
+$man-img: url('../images/man.png');
 
-
-$bg-color: #001435;
+$bg-color-old: #001435;
+$bg-color: linear-gradient(to top left, #130550,  #46108A);
 $work-color: #021e4d;
 $menu-hover-color: #ff6000;
 $white-color: #ffffff;
@@ -23,14 +25,21 @@ html, body {
   overflow-x: hidden;
 }
 
+.menu-item.menu-active {
+	color: $menu-hover-color;
+}
+
 sub {
 	color: $menu-hover-color;
+	white-space: nowrap;
+	cursor: pointer;
 }
 
 body {
 	width: 100%;
 	margin: 0;
 }
+
 
 .wrapper {
 	display: flex;
@@ -43,15 +52,17 @@ a {
 }
 
 p.contacts {
+	white-space: nowrap;
 	width: 100%;
 	color: $white-color;
 	letter-spacing: 0.5;
 	text-decoration: none;
 }
 
+
 .container.contacts {
 	flex-direction: row;
-	background: $work-color;
+	background: $bg-color;
 	padding-bottom: 1px;
 	align-items: flex-start;
 	height: calc(100vh - #{$menu-height});
@@ -97,26 +108,26 @@ p.contacts {
 
 .path-image.bottom {
 	transform: scaleY(-1);
-	top: 25%;
-	bottom: 10%; 
+	align-self: end;
+	bottom: 0; 
 }
 
 .card-text.contacts {
 	left: 5%;
-	height: calc(100vh - 40vh - #{$menu-height});
+	height: calc(100vh - 30vh - #{$menu-height});
 	position: flex;
 	flex-direction: column;
-	margin-top: calc(40vh - #{$menu-height});
+	margin-top: calc(30vh - #{$menu-height});
 	@media(max-width: 1400px) {
-		magrin-top: calc(40vh - #{$menu-small-height});
-		height: calc(100vh - 40vh - #{$menu-small-height});
+		magrin-top: calc(30vh - #{$menu-small-height});
+		height: calc(100vh - 30vh - #{$menu-small-height});
 	}
 	@media(max-width: 960px) {
-		height: calc(100vh - 40vh -(#{$menu-small-height} / 2));
-		margin-top: calc(40vh - (#{$menu-small-height} / 2));
+		height: calc(100vh - 30vh -(#{$menu-small-height} / 2));
+		margin-top: calc(30vh - (#{$menu-small-height} / 2));
 	}
 	@media(max-width: 720px) {
-		height: calc(100vh - 40vh - (#{$menu-small-height} / 2));
+		height: calc(100vh - 30vh - (#{$menu-small-height} / 2));
 		margin-top: 2px;
 	}
 }
@@ -125,11 +136,23 @@ p.contacts {
 	top: 0;
 	z-index: 111;
 	width: 100%;
-	margin-left: 20px;
 	background: $logo-face-dark-img;
 	background-repeat: no-repeat;
-	background-position: bottom;
+	background-position: bottom right;
 	background-size: contain;
+}
+
+.member-block {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	@media(max-width: 960px) {
+		margin-top: 5px;
+	}
+	@media(max-width: 720px) {
+		margin-top: 3px;
+	}
 }
 
 $h1-contacts-font-size: 45px;
@@ -139,7 +162,7 @@ $h1-contacts-width: 370px;
 h1.contacts {
 	width: $h1-contacts-width;
 	color: #ffffff;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: $h1-contacts-font-size;
 	font-weight: $h1-contacts-font-weight;
 	letter-spacing: 0.09px;
@@ -192,7 +215,7 @@ $line-logo-height: 123px;
 	}
 }
 
-$logo-text-width: 370px;
+$logo-text-width: 400px;
 $logo-text-height: 60px;
 $logo-text-font-size: 34px;
 $logo-text-font-width: 700;
@@ -204,9 +227,8 @@ $logo-text-font-width: 700;
 	top: 65px;
 	left: 0;
 	width: $logo-text-width;
-
 	color: $white-color;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: $logo-text-font-size;
 	font-weight: $logo-text-font-width;
 	letter-spacing: 0px;
@@ -321,12 +343,12 @@ $path-image-height: 57px;
 		height: calc(#{$path-image-height} / 2);
 	}
 	@media(max-width: 960px) and (min-height: 900px) {
-		top: 20%;
+		top: 10%;
 		width: calc(#{$path-image-width} / 1.2);
 		height: calc(#{$path-image-height} / 1.2);
 	}
 	@media(max-width: 720px) {
-		top: 10%;
+		top: 5%;
 		width: calc(#{$path-image-width} / 3);
 		height: calc(#{$path-image-height} / 3);
 	}
@@ -336,7 +358,7 @@ $path-image-height: 57px;
 		height: calc(#{$path-image-height} / 1.5);
 	}
 	@media(max-width: 500px) {
-		top: 5%;
+		top: 2%;
 		width: calc(#{$path-image-width} / 3.5);
 		height: calc(#{$path-image-height} / 3.5);
 	}
@@ -356,7 +378,7 @@ $path-image-height: 57px;
 	width: 107px;
 	height: 33px;
 	color: $white-color;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: 34px;
 	font-weight: 400;
 	letter-spacing: -0.82px;
@@ -374,7 +396,7 @@ $path-image-height: 57px;
 	display: flex;
 	width: 100%;
 	height: 100vh;
-	background: linear-gradient(to top left, #130550,  #46108A);
+	background: $bg-color;
 	z-index: 16;
 	align-items: center;
 	flex-direction: column;
@@ -425,12 +447,20 @@ $path-image-height: 57px;
 }
 
 .big-logo.team {
-	background: $logo-face-img;
+	background: $team-img;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	-webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+	margin: 10vh;
+	@media(max-width: 960px) {
+		margin: 5vh;
+	}
+	@media(max-width: 720px) {
+		margin: 2vh;
+	}
+	@media(max-width: 500px) {
+		margin: 5px;
+	}
 }
 
 .container.content.fixed {
@@ -478,13 +508,13 @@ $awards-img-height: 120px;
 
 $h1-font-height: 45px;
 $h1-font-width: 700;
-$h1-margin-top: 15px;
+$h1-margin-top: 20px;
 $h1-margin-bottom: 15px;
 
 h1 {
 	width: 100%;
 	color: #001435;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: $h1-font-height;
 	font-weight: $h1-font-width;
 	letter-spacing: 0;
@@ -543,12 +573,13 @@ h2 {
 	cursor: pointer;
 	max-width: 100%;
 	color: $white-color;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: 35px;
 	font-weight: 700;
 	letter-spacing: 0.1px;
 	line-height: $h2-line-height;
 	text-transform: uppercase;
+	margin-bottom: 8px;
 	@media(max-width: 1600px) {
 		font-size: 30px;
 		font-weight: 600;
@@ -558,21 +589,21 @@ h2 {
 		font-size: calc(#{$h1-font-height} / 2);
 		font-weight: calc(#{$h1-font-width} / 1.2);
 		margin-top: calc(#{$h1-margin-top} / 1.7);
-		margin-bottom: calc(#{$h1-margin-bottom} / 1.6);
+		margin-bottom: calc(#{$h1-margin-bottom} / 3.2);
 		line-height: calc(#{$h2-line-height} / 1.2);
 	}
 	@media(max-width: 960px) {
 		font-size: calc(#{$h1-font-height} / 3);
 		font-weight: calc(#{$h1-font-width} / 1.5);
 		margin-top: calc(#{$h1-margin-top} / 2);
-		margin-bottom: calc(#{$h1-margin-bottom} / 2);
+		margin-bottom: calc(#{$h1-margin-bottom} / 4);
 		line-height: calc(#{$h2-line-height} / 1.5);
 	}
 	@media(max-width: 960px) and (min-height: 900px) {
 		font-size: calc(#{$h1-font-height} / 2);
 		font-weight: calc(#{$h1-font-width} / 1.1);
 		margin-top: calc(#{$h1-margin-top} / 1.5);
-		margin-bottom: calc(#{$h1-margin-bottom} / 1.5);
+		margin-bottom: calc(#{$h1-margin-bottom} / 3.0);
 		line-height: calc(#{$h2-line-height} / 1.1);
 	}
 	@media(max-width: 720px) {
@@ -586,7 +617,7 @@ h2 {
 		font-size: calc(#{$h1-font-height} / 1.5);
 		font-weight: calc(#{$h1-font-width} / 1.1);
 		margin-top: calc(#{$h1-margin-top} / 1.2);
-		margin-bottom: calc(#{$h1-margin-bottom} / 1.2);
+		margin-bottom: calc(#{$h1-margin-bottom} / 2.2);
 		line-height: calc(#{$h2-line-height} / 1.3);
 	}
 	@media(max-width: 500px) {
@@ -594,35 +625,35 @@ h2 {
 		font-size: calc(#{$h1-font-height} / 4);
 		font-weight: calc(#{$h1-font-width} / 3	);
 		margin-top: calc(#{$h1-margin-top} / 4);
-		margin-bottom: calc(#{$h1-margin-bottom} / 4);
+		margin-bottom: calc(#{$h1-margin-bottom} / 8);
 		line-height: calc(#{$h2-line-height} / 3);
 	}
 	@media(max-width: 500px) and (min-height: 600px) {
 		font-size: calc(#{$h1-font-height} / 2);
 		font-weight: calc(#{$h1-font-width} / 2);
 		margin-top: calc(#{$h1-margin-top} / 2);
-		margin-bottom: calc(#{$h1-margin-bottom} / 2);
+		margin-bottom: calc(#{$h1-margin-bottom} / 4);
 		line-height: calc(#{$h2-line-height} / 1.5);
 	}
 	@media(max-width: 400px) and (min-height: 700px) {
 		font-size: calc(#{$h1-font-height} / 2.4);
 		font-weight: calc(#{$h1-font-width} / 2.4);
 		margin-top: calc(#{$h1-margin-top} / 2.4);
-		margin-bottom: calc(#{$h1-margin-bottom} / 2.4);
+		margin-bottom: calc(#{$h1-margin-bottom} / 4.8);
 		line-height: calc(#{$h2-line-height} / 2.4);
 	}
 	@media(max-width: 400px) and (min-height: 500px) {
 		font-size: calc(#{$h1-font-height} / 2.2);
 		font-weight: calc(#{$h1-font-width} / 2.2);
 		margin-top: calc(#{$h1-margin-top} / 2.2);
-		margin-bottom: calc(#{$h1-margin-bottom} / 2.2);
+		margin-bottom: calc(#{$h1-margin-bottom} / 4.4);
 		line-height: calc(#{$h2-line-height} / 2);
 	}
 	@media(max-width: 350px) {
 		font-size: calc(#{$h1-font-height} / 2.4);
 		font-weight: calc(#{$h1-font-width} / 2.4);
 		margin-top: calc(#{$h1-margin-top} / 2.4);
-		margin-bottom: calc(#{$h1-margin-bottom} / 2.4);
+		margin-bottom: calc(#{$h1-margin-bottom} / 4.8);
 		line-height: calc(#{$h2-line-height} / 2.2);
 	}
 }
@@ -656,68 +687,70 @@ p.light {
 	font-size: 25px;
 	font-weight: 300;
 	letter-spacing: 0.1px;
+	line-height: 1 ;
 	margin-bottom: $p-margin-top;
+	margin-top: 10px;
 	@media(max-width: 1600px) {
 		max-width: 500px;
 	}
 	@media(max-width: 1400px) {
 		font-size: calc(#{$p-font-size} / 3);
 		font-weight: calc(#{$p-font-width} / 2);
-		margin-top: calc(#{$p-margin-top} / 2);
+		margin-top: calc(#{$p-margin-top} / 4);
 		margin-bottom: calc(#{$p-margin-top} / 2);
 	}
 	@media(max-width: 960px) {
 		font-size: calc(#{$p-font-size} / 3);
 		font-weight: calc(#{$p-font-width} / 3);
-		margin-top: calc(#{$p-margin-top} / 3);
+		margin-top: calc(#{$p-margin-top} / 6);
 		margin-bottom: calc(#{$p-margin-top} / 3);
 	}
 	@media(max-width: 960px) and (min-height: 900px) {
 		font-size: calc(#{$p-font-size} / 2);
 		font-weight: calc(#{$p-font-width} / 2);
-		margin-top: calc(#{$p-margin-top} / 2);
+		margin-top: calc(#{$p-margin-top} / 4);
 		margin-bottom: calc(#{$p-margin-top} / 2);
 	}
 	@media(max-width: 720px) {
 		font-size: calc(#{$p-font-size} / 4);
 		font-weight: calc(#{$p-font-width} / 4);
-		margin-top: calc(#{$p-margin-top} / 4);
+		margin-top: calc(#{$p-margin-top} / 8);
 		margin-bottom: calc(#{$p-margin-top} / 4);
 	}
 	@media(max-width: 720px) and (min-height: 720px) {
 		font-size: calc(#{$p-font-size} / 1.8);
 		font-weight: calc(#{$p-font-width} / 1.8);
-		margin-top: calc(#{$p-margin-top} / 1.8);
+		margin-top: calc(#{$p-margin-top} / 3.6);
 		margin-bottom: calc(#{$p-margin-top} / 1.8);
 	}
 	@media(max-width: 500px) {
 		font-size: calc(#{$p-font-size} / 5);
 		font-weight: calc(#{$p-font-width} / 5);
-		margin-top: calc(#{$p-margin-top} / 5);
+		margin-top: calc(#{$p-margin-top} / 10);
 		margin-bottom: calc(#{$p-margin-top} / 5);
 	}
 	@media(max-width: 500px) and (min-height: 600px) {
 		font-size: calc(#{$p-font-size} / 1.6);
 		font-weight: calc(#{$p-font-width} / 1.6);
-		margin-top: calc(#{$p-margin-top} / 1.6);
+		margin-top: calc(#{$p-margin-top} / 3.2);
 		margin-bottom: calc(#{$p-margin-top} / 1.6);
 	}
 	@media(max-width: 400px) and (min-height: 700px) {
 		font-size: calc(#{$p-font-size} / 2.1);
 		font-weight: calc(#{$p-font-width} / 2.1);
-		margin-top: calc(#{$p-margin-top} / 2.1);
+		margin-top: calc(#{$p-margin-top} / 4.2);
 		margin-bottom: calc(#{$p-margin-top} / 2.1);
 	}
 	@media(max-width: 400px) and (min-height: 600px) {
 		font-size: calc(#{$p-font-size} / 2.2);
 		font-weight: calc(#{$p-font-width} / 2.2);
-		margin-top: calc(#{$p-margin-top} / 2.2);
+		margin-top: calc(#{$p-margin-top} / 4.4);
 		margin-bottom: calc(#{$p-margin-top} / 2.2);
 	}
 	@media(max-width: 400px) and (min-height: 500px) {
 		font-size: calc(#{$p-font-size} / 1.9);
 		font-weight: calc(#{$p-font-width} / 1.9);
-		margin-top: calc(#{$p-margin-top} / 1.9);
+		margin-top: calc(#{$p-margin-top} / 3.8);
 		margin-bottom: calc(#{$p-margin-top} / 1.9);
 	}
 }
@@ -751,7 +784,7 @@ h2.active {
 p {
 	width: 40%;
 	color: #000000;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: $p-font-size;
 	font-weight: $p-font-width;
 	letter-spacing: 0;
@@ -803,7 +836,7 @@ p {
 	flex-direction: row;
 	justify-content: flex-start;
 	height: $menu-height;
-	background: $bg-color;
+	background: $bg-color-old;
 	z-index: 120;
 	opacity: 1.0;
 	transition: all 0.3s ease 0s;
@@ -939,16 +972,16 @@ $menu-item-height: 12px;
 .container.work {
 	flex-direction: row;
 	height: calc(100vh - #{$menu-height});
-	background: $work-color;
+	background: $bg-color;
 	padding-bottom: 1px;
 	@media(max-width: 1400px) {
 		height: calc(100vh - #{$menu-small-height});
 	}
-	@media(max-width: 1000px) {
-		flex-direction: column;
-	}
 	@media(max-width: 960px) {
 		height: calc(100vh - (#{$menu-small-height} / 2));
+	}
+	@media(max-width: 1000px) {
+		flex-direction: column;
 	}
 	@media(max-width: 720px) {
 		height: calc(200vh - #{$menu-small-height} * 2);
@@ -1068,7 +1101,7 @@ small {
 	position: relative;
 	width: 100%;
 	color: rgba(0, 0, 0, 0.5);
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: 1.2em;
 	font-weight: 400;
 	letter-spacing: 0px;
@@ -1110,11 +1143,14 @@ $card-text-members: 60%;
 
 .card-text.members {
 	width: 100%;
-	top: 0;
+	top: 35px;
 	left: 0;
 	margin-right: 0;
 	display: flex;
 	flex-direction: column;
+	@media(max-width: 720px) {
+		top: 20px;
+	}
 }
 
 .group-members {
@@ -1127,18 +1163,19 @@ $card-text-members: 60%;
 	flex-direction: column;
 	align-items: flex-start;
 	top: 0;
+	margin-left: 13%;
 	width: 100%;
 	height: 80%;
 }
 
 .work-image {
-	margin: 15px;
+	margin: 0 15px 0 15px;
 	opacity: 0;
 	transition: all .7s ease-in;
 	animation-duration: 1s;
 	animation-name: viewin;
 	@media(max-width: 1000px) {
-		margin: 5px;
+		margin: 0 5px 0 5px;
 	}
 }
 
@@ -1193,6 +1230,7 @@ $card-text-members: 60%;
 	width: 100%;
 	height: 100%;
 	z-index: 66;
+	margin-left: 5vw;
 	@media(max-width: 750px) {
 		margin-left: auto;
 		width: 100%;
@@ -1252,7 +1290,7 @@ h1.team {
 
 p.team {
 	width: 80%;
-	margin: 2px;
+	margin-bottom: 0;
 	letter-spacing: 0.1px;
 	@media(max-width: 960px) {
 		font-size: calc(#{$em} / 2);
@@ -1280,23 +1318,107 @@ p.team {
 	}
 }
 
+$p-member-margin: 13px;
+
+.man {
+	margin-left: 15px;
+	display: relative;
+	margin-top: $p-member-margin;
+	margin-bottom: $p-member-margin;
+	width: 20px;
+	height: 20px;
+	background: $man-img;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: contain;
+	@media(max-width: 1800px) {
+		margin-top: calc(#{$p-member-margin} / 1.5);
+		margin-bottom: calc(#{$p-member-margin} / 1.5);
+	}
+	@media(max-width: 1600px) {
+		margin-top: calc(#{$p-member-margin} / 2.2);
+		margin-bottom: calc(#{$p-member-margin} / 2.2);
+	}
+	@media(max-width: 1200px) {
+		margin-top: calc(#{$p-member-margin} / 5);
+		margin-bottom: calc(#{$p-member-margin} / 5);
+	}
+	@media(max-width: 960px) {
+		margin-top: 0;
+		margin-bottom: 0;
+		width: 10px;
+		height: 10px;
+		margin-left: 10px;
+	}
+	@media(max-width: 960px) and (min-height: 900px) {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		width: 15px;
+		height: 15px;
+		margin-left: 15px;
+	}
+	@media(max-width: 500px) {
+		width: 5px;
+		height: 5px;
+		margin-left: 5px;
+	}
+	@media(max-width: 500px) and (min-height: 400px) {
+		margin-top: 3px;
+		margin-bottom: 3px;
+		width: 10px;
+		height: 10px;
+		margin-left: 10px;
+	}
+	@media(max-width: 400px) {
+		width: 3px;
+		height: 3px;
+		margin-left: 3px;
+	}
+	@media(max-width: 400px) and (min-height: 500px) {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		width: 5px;
+		height: 5px;
+		margin-left: 5px;
+	}
+}
+
+.man.empty {
+	background: $white-color;
+}
+
 $p-member-name-height: 1em;
 $p-member-name-width: 700;
+
 
 p.member-name {
 	width: 100%;
 	color: #000000;
-	font-family: "San Francisco Display";
+	font-family: "Roboto";
 	font-size: 1em;
 	font-weight: 700;
 	margin-left: $member-img-margin;
-	margin-top: 0;
-	margin-bottom: 0;
+	margin-top: $p-member-margin;
+	margin-bottom: $p-member-margin;
 	letter-spacing: 0;
+	@media(max-width: 1800px) {
+		margin-top: calc(#{$p-member-margin} / 1.5);
+		margin-bottom: calc(#{$p-member-margin} / 1.5);
+	}
+	@media(max-width: 1600px) {
+		margin-top: calc(#{$p-member-margin} / 2.2);
+		margin-bottom: calc(#{$p-member-margin} / 2.2);
+	}
+	@media(max-width: 1200px) {
+		margin-top: calc(#{$p-member-margin} / 5);
+		margin-bottom: calc(#{$p-member-margin} / 5);
+	}
 	@media(max-width: 960px) {
 		font-size: calc(#{$p-member-name-height} / 2);
 		font-weight: calc(#{$p-member-name-width} / 2);
 		margin-left: calc(#{$member-img-margin} / 2);
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 	@media(max-width: 960px) and (min-height: 900px) {
 		font-size: calc(#{$p-member-name-height} / 1.2);
@@ -1323,10 +1445,16 @@ p.member-name {
 		font-weight: calc(#{$p-member-name-width} / 2);
 		margin-left: calc(#{$member-img-margin} / 2);
 	}
+	@media(max-width: 400px) {
+		font-size: calc(#{$p-member-name-height} / 5);
+		font-weight: calc(#{$p-member-name-width} / 5);
+		margin-left: calc(#{$member-img-margin} / 5);
+	}
+	@media(max-width: 500px) and (min-height: 600px) {
+		font-size: calc(#{$p-member-name-height} / 2.5);
+		font-weight: calc(#{$p-member-name-width} / 2.5);
+		margin-left: calc(#{$member-img-margin} / 2.5);
+	}
 }
 
 
-
-.card-text.memers {
-	height: 60%;
-}
