@@ -1,0 +1,189 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Appsidol</title>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<meta name="Keywords" content=""> 
+	<meta name="description" content=""> 
+	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script src="//code-ya.jivosite.com/widget/xvrc6iVAlr" async></script>
+</head>
+<script>
+	function toAnchor(selector) {
+		var element = document.querySelector('#' + selector);
+		//element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+		let scrollTop = window.pageYOffset || element.scrollTop
+   	const windowWidth = window.innerWidth;
+   	let menuHeight = 123;
+		if (windowWidth <= 1400) menuHeight = 80;
+		if (windowWidth <= 960) menuHeight = 40;
+		if (selector == 'mission') menuHeight = 0;
+  	const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight;
+	  window.parent.scrollTo({
+	    top: finalOffset,
+	    behavior: 'smooth'
+	  })
+	}
+</script>
+<body>
+	<div class="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="center-image">
+					<div class="logo-image"></div>
+					<div class="line-logo"></div>
+					<div class="logo-text">Рождены<br> чтобы создавать</div>
+				</div>
+				<a href="javascript:toAnchor('mission')" class="path-image"></a>
+			</div>
+		</header>
+		<section id="mission" class="mission">
+			<div class="container menu">
+				<div class="burger-button"><span></span></div>
+				<a href="javascript:toAnchor('mission')" class="menu-item">Миссия</a>
+				<a href="javascript:toAnchor('work')" class="menu-item">Работы</a>
+				<a href="javascript:toAnchor('team')" class="menu-item">Команда</a>
+				<a href="javascript:toAnchor('contacts')" class="menu-item">Контакты</a>
+			</div>
+			<div class="container content">
+				<div class="card-text">
+					<h1>Миссия</h1>
+					<p>Разработка наша страсть. Больше 2 лет мы создаём отличные, эффективные и удобные мобильные приложения для iOS и Android.</p>
+					<h1>НАГРАДЫ</h1>
+					<div class="photos" onclick="window.open('https://twitter.com/IEbusiness/status/1152270939922587648')"></div>
+				</div>
+				<div class="big-logo"></div>
+			</div>
+		</section>
+		<section id="work" class="mission">
+			<div class="container work">
+				<div class="jobs">
+					<div class="jobs-item">
+						<h2 id="6" style="margin-top: 5px;">ТАЛАНТЫ РОССИИ</h2>
+						<p class="light">
+							Приложение для поиска занятий для детей и их родителей. Учителя могут преподавать
+						</p>
+					</div>
+					<div class="jobs-item">
+						<h2 id="2">Ulindr</h2>
+						<p class="light">
+							Стартап приложения знакомств для девушек
+						</p>
+					</div>
+					<div class="jobs-item">	
+						<h2 id="3">gazprom seha liga</h2>
+						<p class="light">
+							Приложения для Gazprom SEHA Liga. Создано для фанатов гандбола
+						</p>
+					</div>
+					<div class="jobs-item">	
+						<h2 id="5">MInt Food</h2>
+						<p class="light">
+							Приложение по доставке еды
+						</p>
+					</div>	
+					<div class="jobs-item">	
+						<h2 id="1">CraftBeer</h2>
+						<p class="light">
+							Магазин по продаже пива
+						</p>
+					</div>			
+				</div>
+				<div class="examples">
+					<div class="preload-one-image"></div>
+					<div class="preload-all-images"></div>
+					<div class="carousel">
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="team" class="team">
+			<div class="container content">
+				<div class="our-team">
+					<div class="card-text team">
+						<h1 class="team">Наша команда</h1>
+						<p class="team">
+							Преданные своему делу таланты, — нам нравится создавать качественные приложения.
+						</p>
+					</div>
+					<div class="card-text members">
+						<div class="member-block">
+							<div class="man"></div>
+							<div class="man"></div>
+							<div class="man"></div>
+							<p class="member-name">Бэкенд разработчики</p>
+						</div>
+						<div class="member-block">
+							<div class="man empty"></div>
+							<div class="man"></div>
+							<div class="man"></div>
+							<p class="member-name">Android разработчики</p>
+						</div>
+						<div class="member-block">
+							<div class="man empty"></div>
+							<div class="man"></div>
+							<div class="man"></div>
+							<p class="member-name">iOS разработчики</p>
+						</div>
+						<div class="member-block">
+							<div class="man empty"></div>
+							<div class="man"></div>
+							<div class="man"></div>
+							<p class="member-name">Тестировщики</p>
+						</div>
+						<div class="member-block">
+							<div class="man empty"></div>
+							<div class="man empty"></div>
+							<div class="man"></div>
+							<p class="member-name">DevOps</p>
+						</div>
+						<div class="member-block">
+							<div class="man empty"></div>
+							<div class="man empty"></div>
+							<div class="man"></div>
+							<p class="member-name">Дизайнеры</p>
+						</div>
+						<div class="member-block">
+							<div class="man empty"></div>
+							<div class="man empty"></div>
+							<div class="man"></div>
+							<p class="member-name">Проект - менеджер</p>
+						</div>
+					</div>
+				</div>
+				<div class="big-logo team"></div>
+			</div>
+		</section>
+		<section id="contacts">
+			<div class="container contacts">
+				<div class="contacts-logo">
+					<div class="card-text contacts">
+						<div class="contacts">
+							<p class="contacts"><sub onclick="javascript:initMap(59.93863, 30.31413)">Санкт-Петербург, Россия</sub><br>+7 (812) 660 44 65 <br></p>
+							<p class="contacts"><sub onclick="javascript:initMap(25.276987, 55.296249)">Дубай, ОАЭ</sub><br>+971 50 666 0445 <br></p>
+							<p class="contacts"><sub onclick="javascript:initMap(52.520008, 13.404954)">Берлин, Германия</sub><br>+49 178 8783930 <br></p>
+						</div>
+						<a href="javascript:toAnchor('header')" class="path-image bottom"></a>
+					</div>
+					<div class="big-logo contacts"></div>
+				</div>
+				<div class="map" id="map">
+				
+				</div>
+			</div>	
+
+		</section>
+		<script>
+			function initMap(lat = 59.93863, lon = 30.31413) {
+			  var uluru = {lat: lat, lng: lon};
+			  var map = new google.maps.Map(
+			      document.getElementById('map'), {zoom: 13, center: uluru});
+			  var marker = new google.maps.Marker({position: uluru, map: map});
+			}
+    </script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZKammD-89k3aYI3mRsRAFKzLP66to7MU&callback=initMap&language=ru&region=RU"type="text/javascript"></script>
+	</div>
+</body>
+</html>
