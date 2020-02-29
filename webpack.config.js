@@ -53,7 +53,7 @@ module.exports = {
     ]
   },
   plugins: [
-  	new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
   		filename: (process.env.NODE_ENV !== 'development')? 'index_EN.html' : 'index.html',
       template: './src/index.html',
       minify: true

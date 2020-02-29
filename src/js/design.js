@@ -5,24 +5,35 @@ function $(){}
 	// Управляет работой меню
 export function Menu() {
 	// Нажатие кнопки
-	const buttonsBurger = document.querySelector('div[class="burger-button"]');
-	buttonsBurger.addEventListener('click', () => {
-		buttonsBurger.classList.toggle('active');
-		buttonsBurger.parentElement.classList.toggle('active');
-		const items = buttonsBurger.parentElement.querySelectorAll('.menu-item');
+	const clickMenuHandler = (button) => {
+		button.classList.toggle('active');
+		button.parentElement.classList.toggle('active');
+		const items = button.parentElement.querySelectorAll('.menu-item');
 		for (let i = 0; items[i]; i++) {
 			items[i].classList.toggle('active');
 			items[i].addEventListener('click', () => {
 				const closeMenu = new Event('click');
-				buttonsBurger.classList.add(':hover');
+				button.classList.add(':hover');
 				setTimeout(() => {
-					buttonsBurger.dispatchEvent(closeMenu);
+					button.dispatchEvent(closeMenu);
 				}, 250);
 			});
 		}
+	};
+	const buttonsBurger = document.querySelector('div[class="burger-button"]');
+	buttonsBurger.addEventListener('click', () => {
+		clickMenuHandler(buttonsBurger);
+	});
+	const buttonsBurgerTop = document.querySelector('div[class="burger-button top"]');
+	buttonsBurgerTop.addEventListener('click', () => {
+		clickMenuHandler(buttonsBurgerTop);
 	});
 	// Отслеживание прокрутки
 	const menu = document.querySelector('div[class="container menu"]');
+	const menuTop = document.querySelector('div[class="container menu top"]');
+	if (window.innerWidth >= 640) {
+		menuTop.classList.add('clear');
+	}
 	const container = document.querySelector('div[class="container"]');
 	const cardText = document.querySelector('div[class=card-text]');
 	const contContent = document.querySelector('div[class="container content"]');
@@ -128,9 +139,11 @@ export function Carousel() {
 			image.setAttribute('class', `work-image`);
 			let parentWidth = parseInt(divCarousel.clientWidth);
 			let parentHeight = parseInt(divCarousel.clientHeight);
-			parentWidth = (big)? parentWidth / 3 : parentWidth; 
-			parentHeight = (big)? parentHeight / 1.5 : parentHeight;
-			const size = getImageSize({ width: parentWidth, height: parentHeight },
+			if (!$.parentWidth) {
+				$.parentWidth = (big)? parentWidth / 3 : parentWidth; 
+				$.parentHeight = (big)? parentHeight / 1.5 : parentHeight;
+			}
+			const size = getImageSize({ width: $.parentWidth, height: $.parentHeight },
 				{ width: img.width, height: img.height }, big);
 			image.width = size.width;
 			image.height = size.height;
