@@ -22,7 +22,7 @@ $menu-height: 123px;
 $menu-small-height: 80px;
 
 html, body {
-  overflow-x: hidden;
+  //overflow-x: hidden;
 }
 
 .menu-item.menu-active {
@@ -60,16 +60,24 @@ a {
 	text-decoration: none;
 }
 
+$p-contacts-font-weight: 500;
+
 p.contacts {
 	white-space: nowrap;
 	width: 100%;
 	color: $white-color;
+	font-weight: $p-contacts-font-weight;
 	letter-spacing: 0.5;
 	text-decoration: none;
 	@media(max-width: 500px) and (min-height: 600px) {
+		font-size: calc(35px / 1.5);
+		font-weight: calc(#{$p-contacts-font-weight} / 1.2);
+		margin-top: calc(20px / 1.5);
+	}
+	@media(max-width: 500px) {
 		letter-spacing: 1;
 		font-size: calc(35px / 1.5);
-		font-weight: calc(400 / 1.5);
+		font-weight: calc(#{$p-contacts-font-weight} / 1.2);
 		margin-top: calc(20px / 1.5);
 	}
 }
@@ -145,7 +153,7 @@ section#contacts {
 	@media(max-width: 500px) and (min-height: 600px) {
 		margin-bottom: 20vh;
 	}	
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		margin-bottom: 20vh;
 	}	
 }
@@ -181,7 +189,7 @@ section#contacts {
 	@media(max-width: 400px) and (min-height: 500px) {
 		margin-top: 6px;	
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		margin-top: 1px;	
 	}
 }
@@ -249,7 +257,7 @@ $line-logo-height: 123px;
 		width: calc(#{$line-logo-height} / 2.5);
 		margin: 30px 0 15px 0;
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		height: 0;
 		width: calc(#{$line-logo-height} / 2.5);
 		margin: 30px 0 15px 0;
@@ -311,7 +319,7 @@ $logo-text-font-width: 700;
 		font-size: calc(#{$logo-text-font-size} / 1.8);
 		font-weight: calc(#{$logo-text-font-width} / 1.4);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		width: calc(#{$logo-text-width} / 2.5);
 		font-size: calc(#{$logo-text-font-size} / 1.8);
 		font-weight: calc(#{$logo-text-font-width} / 1.4);
@@ -408,7 +416,7 @@ $path-image-height: 57px;
 		width: calc(#{$path-image-width} / 2.5);
 		height: calc(#{$path-image-height} / 2.5);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		top: 10%;
 	}
 }
@@ -422,7 +430,7 @@ $path-image-height: 57px;
 		width: calc(#{$path-image-width} / 1.8);
 		height: calc(#{$path-image-height} / 1.8);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		top: 50%;
 		width: calc(#{$path-image-width} / 1.8);
 		height: calc(#{$path-image-height} / 1.8);
@@ -465,7 +473,7 @@ $path-image-height: 57px;
 	@media(max-width: 500px) and (min-height: 600px) {
 		flex-direction: column;
 	}
-	@media(max-width: 350px){
+	@media(max-width: 360px){
 		flex-direction: column;
 	}
 }
@@ -526,7 +534,7 @@ $path-image-height: 57px;
 		width: 80%;
 		margin-bottom: -1vh;
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		width: 60%;
 		margin-bottom: -1vh;
 	}
@@ -573,7 +581,7 @@ $awards-img-height: 120px;
 		width: calc(#{$awards-img-width} / 2);
 		height: calc(#{$awards-img-height} / 2);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		width: calc(#{$awards-img-width} / 2);
 		height: calc(#{$awards-img-height} / 2);
 		margin-bottom: 0;
@@ -642,7 +650,7 @@ h1 {
 		margin-top: calc(#{$h1-margin-top} / 1.5);
 		margin-bottom: calc(#{$h1-margin-bottom} / 1.5);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		font-size: calc(#{$h1-font-height} / 1.5);
 		font-weight: calc(#{$h1-font-width} / 1.5);
 		margin-top: calc(#{$h1-margin-top} / 1.5);
@@ -733,7 +741,11 @@ h2 {
 		margin-bottom: calc(#{$h1-margin-bottom} / 5.4);
 		line-height: calc(#{$h2-line-height} / 1.5);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
+		font-size: calc(#{$h1-font-height} / 3);
+		font-weight: calc(#{$h1-font-width} / 1.5);
+		margin-top: calc(#{$h1-margin-top} / 3);
+		margin-bottom: calc(#{$h1-margin-bottom} / 5.5);
 		line-height: calc(#{$h2-line-height} / 1.8);
 	}
 }
@@ -847,8 +859,12 @@ h2.active {
 	z-index: 1;
 	top: 0;
 	left: 13%;
+	@media(max-width: 500px) {
+		left: 0;
+	}
 	@media(max-width: 500px) and (min-height: 600px) {
 		top: 4vh;
+		width: 70%;
 	}
 }
 
@@ -913,7 +929,7 @@ p {
 		font-weight: calc(#{$p-font-width} / 2);
 		margin-top: calc(#{$p-margin-top} / 2);
 	}
-	@media(max-width: 350px){
+	@media(max-width: 360px){
 		font-size: calc(#{$p-font-size} / 2);
 		font-weight: calc(#{$p-font-width} / 2);
 		margin-top: calc(#{$p-margin-top} / 2);
@@ -995,10 +1011,6 @@ p {
 	transform: rotate(-45deg);
 	top: 13px;
 }
-@media(max-width: 1700px) {
-		max-width: 30%;
-		max-height: 90%;
-	}
 
 .burger-button.active span {
 	transform: scale(0);
@@ -1280,8 +1292,11 @@ $card-text-members: 60%;
 	align-items: flex-start;
 	top: 0;
 	margin-left: 13%;
-	width: 100%;
+	width: 70%;
 	height: 80%;
+	@media(max-width: 500px) {
+		margin-left: 0;
+	}
 	@media(max-width: 400px) and (min-height: 500px) {
 		height: auto;
 	}
@@ -1337,6 +1352,9 @@ $card-text-members: 60%;
 
 .work-image:hover {
 	transform: scale(1.1);
+	@media(max-width: 360px) {
+		transform: scale(2.1);
+	}
 }
 
 
@@ -1358,8 +1376,8 @@ $card-text-members: 60%;
 		margin-left: 0;
 		width: 80%;
 	}
-	@media(max-width: 350px) {
-		width: 60%;
+	@media(max-width: 360px) {
+		width: 30%;
 		margin-left: 0;
 	}
 }
@@ -1416,7 +1434,7 @@ h1.team {
 	@media(max-width: 500px) and (min-height: 600px) {
 		font-size: calc(#{$em} / 1.5);
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		font-size: calc(#{$em} / 1.5);
 	}
 }
@@ -1514,7 +1532,7 @@ $p-member-margin: 13px;
 		height: 10px;
 		margin-left: 7px;
 	}
-	@media(max-width: 350px) {
+	@media(max-width: 360px) {
 		margin-top: 3px;
 		margin-bottom: 3px;
 		width: 10px;
@@ -1581,6 +1599,7 @@ p.member-name {
 		margin-left: calc(#{$member-img-margin} / 4);
 	}
 	@media(max-width: 500px) and (min-height: 600px) {
+		width: 80%;
 		font-size: calc(#{$p-member-name-height} / 2);
 		font-weight: calc(#{$p-member-name-width} / 2);
 		margin-left: calc(#{$member-img-margin} / 2);
@@ -1591,12 +1610,12 @@ p.member-name {
 		margin-left: calc(#{$member-img-margin} / 5);
 	}
 	@media(max-width: 500px) and (min-height: 600px) {
-		font-size: calc(#{$p-member-name-height} / 1.5);
+		font-size: calc(#{$p-member-name-height} / 1.3);
 		font-weight: calc(#{$p-member-name-width} / 1.5);
 		margin-left: calc(#{$member-img-margin} / 1.5);
 	}
-	@media(max-width: 350px) {
-		font-size: calc(#{$p-member-name-height} / 1.5);
+	@media(max-width: 360px) {
+		font-size: calc(#{$p-member-name-height} / 1.3);
 		font-weight: calc(#{$p-member-name-width} / 1.5);
 		margin-left: calc(#{$member-img-margin} / 1.5);
 	}

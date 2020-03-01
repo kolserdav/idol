@@ -54,13 +54,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-  		filename: (process.env.NODE_ENV !== 'development')? 'index_EN.html' : 'index.html',
-      template: './src/index.html',
+      filename: (process.env.NODE_ENV !==  'development')? 'index_RU_[hash:16].html' : 'index.html',
+      template: './src/ru/index.html',
       minify: true
     }),
     new HtmlWebpackPlugin({
-      filename: (process.env.NODE_ENV !==  'development')? 'index_RU.html' : 'index.html',
-      template: './src/ru/index.html',
+  		filename: (process.env.NODE_ENV !== 'development')? 'index_EN_[hash:16].html' : 'index.html',
+      template: './src/index.html',
       minify: true
     }),
     new MiniCssExtractPlugin(),

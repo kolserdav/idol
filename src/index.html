@@ -14,16 +14,17 @@
 		var element = document.querySelector('#' + selector);
 		//element.scrollIntoView({ behavior: 'smooth', block: 'end' });
 		let scrollTop = window.pageYOffset || element.scrollTop
-   	const windowWidth = window.innerWidth;
-   	let menuHeight = 123;
+   		const windowWidth = window.innerWidth;
+   		let menuHeight = 123;
 		if (windowWidth <= 1400) menuHeight = 80;
 		if (windowWidth <= 960) menuHeight = 40;
 		if (selector == 'mission') menuHeight = 0;
-  	const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight;
-	  window.parent.scrollTo({
-	    top: finalOffset,
-	    behavior: 'smooth'
-	  })
+		const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight;
+		console.log(selector)  
+		window.parent.scrollTo({
+			top: finalOffset,
+			behavior: 'smooth'
+		})
 	}
 </script>
 <body>
@@ -48,10 +49,10 @@
 		<section id="mission" class="mission">
 			<div class="container menu">
 				<div class="burger-button"><span></span></div>
-				<a href="javascript:toAnchor('mission')" class="menu-item first">Mission</a>
-				<a href="javascript:toAnchor('work')" class="menu-item">Work</a>
-				<a href="javascript:toAnchor('team')" class="menu-item">Team</a>
-				<a href="javascript:toAnchor('contacts')" class="menu-item">Contacts</a>
+				<a href="javascript:toAnchor('mission')" item="menu" class="menu-item first">Mission</a>
+				<a href="javascript:toAnchor('work')" item="menu" class="menu-item">Work</a>
+				<a href="javascript:toAnchor('team')" item="menu" class="menu-item">Team</a>
+				<a href="javascript:toAnchor('contacts')" item="menu" class="menu-item">Contacts</a>
 			</div>
 			<div class="container content">
 				<div class="card-text">

@@ -151,7 +151,7 @@ export function Carousel() {
 			preloadBlock.appendChild(image);
 			images.push(image);
 			// Прослушиватель масштабирования для отладки TODO закоментировать на деплое
-			if (!$.resizeListener) {
+			/*if (!$.resizeListener) {
 				$.resizeListener = true;
 				window.addEventListener('resize', () => {
 					const container = document.querySelector('div[class="container"]');
@@ -159,7 +159,7 @@ export function Carousel() {
 					console.log('height', container.clientHeight)
 					showImage(id);
 				});
-			}
+			}*/
 		}
 		// По загрузке стартового изображения определяется подгрузка остальных картинок
 		image.onload = () => {
