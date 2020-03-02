@@ -24,16 +24,16 @@ export function Menu() {
 	buttonsBurger.addEventListener('click', () => {
 		clickMenuHandler(buttonsBurger);
 	});
+	const menuTop = document.querySelector('div[id="top-menu"]');
+	if (window.innerWidth <= 640) {
+		menuTop.classList.remove('clear');
+	}	
 	const buttonsBurgerTop = document.querySelector('div[class="burger-button top"]');
 	buttonsBurgerTop.addEventListener('click', () => {
 		clickMenuHandler(buttonsBurgerTop);
 	});
 	// Отслеживание прокрутки
 	const menu = document.querySelector('div[class="container menu"]');
-	const menuTop = document.querySelector('div[class="container menu top"]');
-	if (window.innerWidth >= 640) {
-		menuTop.classList.add('clear');
-	}
 	const container = document.querySelector('div[class="container"]');
 	const cardText = document.querySelector('div[class=card-text]');
 	const contContent = document.querySelector('div[class="container content"]');

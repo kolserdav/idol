@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode development",
+    "css": "node-sass -output-style src/scss/style.scss > src/static/css/style.css",
     "build": "NODE_ENV=production webpack --mode production && cp -r ./src/static ./dist/static && cp robots.txt ./dist/robots.txt && cp sitemap.xml ./dist/sitemap.xml"
   },
   "devDependencies": {
