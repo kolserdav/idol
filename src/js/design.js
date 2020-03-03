@@ -1,4 +1,4 @@
-import Images from '../config/carousel';
+//import Images from '../config/carousel';
 
 function $(){}
 
@@ -60,7 +60,7 @@ export function Menu() {
 }
 
 // Вывод изображений блока works
-export function Carousel() {
+/*export function Carousel() {
 
 	$.clicks = {};
 
@@ -150,16 +150,7 @@ export function Carousel() {
 			divCarousel.innerHTML = '';
 			preloadBlock.appendChild(image);
 			images.push(image);
-			// Прослушиватель масштабирования для отладки TODO закоментировать на деплое
-			/*if (!$.resizeListener) {
-				$.resizeListener = true;
-				window.addEventListener('resize', () => {
-					const container = document.querySelector('div[class="container"]');
-					console.log('width', container.clientWidth)
-					console.log('height', container.clientHeight)
-					showImage(id);
-				});
-			}*/
+			
 		}
 		// По загрузке стартового изображения определяется подгрузка остальных картинок
 		image.onload = () => {
@@ -204,4 +195,15 @@ export function Carousel() {
 			showImage(id);
 		});
 	}
-}
+}*/
+
+// Прослушиватель масштабирования для отладки TODO закоментировать на деплое
+			/*if (!$.resizeListener) {
+				$.resizeListener = true;
+				window.addEventListener('resize', () => {
+					const container = document.querySelector('div[class="container"]');
+					console.log('width', container.clientWidth)
+					console.log('height', container.clientHeight)
+					showImage(id);
+				});
+			}*/

@@ -11,6 +11,7 @@ $member3-img: url('../images/member3.svg');
 $member4-img: url('../images/member4.svg');
 $team-img: url('../images/team.png');
 $man-img: url('../images/man.png');
+$arrow-img: url('../images/arrow.svg');
 
 $bg-color-old: #001435;
 $bg-color: linear-gradient(to top left, #130550,  #46108A);
@@ -18,16 +19,121 @@ $work-color: #021e4d;
 $menu-hover-color: #ff6000;
 $white-color: #ffffff;
 
-$menu-height: 123px;
+$menu-height: 60px;
 $menu-small-height: 80px;
 
 html, body {
   //overflow-x: hidden;
 }
 
+section#work {
+	width: 100%;
+	height: calc(100vh - #{$menu-height});
+	@media(max-width: 1400px) {
+		height: calc(100vh - #{$menu-small-height});
+	}
+	@media(max-width: 960px) {
+		height: calc(100vh - (#{$menu-small-height} / 2));
+	}
+	background: $bg-color;
+}
+
+img{
+	width: 100%;
+	margin: auto;
+	@media(max-width: 640px) {
+		width: 100%;
+	}
+}
+
+p.desc {
+	color: white;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
 .menu-item.menu-active {
 	color: $menu-hover-color;
 }
+
+.nav {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	top: -50%;	
+}
+
+$arrow-width: 40px;
+
+.prev {
+	left: 5%;
+	//border: 4px double black;
+	display: block;
+	width: $arrow-width;
+	height: $arrow-width;
+	cursor: pointer;
+	position: relative;
+	background: $arrow-img;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+    background-size: cover;
+	z-index: 100000;
+}
+
+.next {
+	transform: scaleX(-1);
+	left: 90%;
+	//border: 4px double black;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	width: $arrow-width;
+	height: $arrow-width;
+	background: $arrow-img;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+    background-size: cover;
+	z-index: 100000;
+}
+
+/*nav.a {
+	z-index: 1000;
+    cursor: pointer;
+    display: block;
+	background: $arrow-img;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: contain;
+    background-size: cover;
+    width: 20px;
+    outline: none;
+    height: 39px;
+}
+
+a.prev.slick-arrow {
+	position: relative;
+	background-image: $arrow-img;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+	z-index: 10000;
+}
+
+a.next.slick-arrow {
+	position: relative;
+	background: $arrow-img;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+	z-index: 10000;
+}*/
 
 sub {
 	color: $menu-hover-color;
@@ -946,7 +1052,7 @@ p {
 	height: $menu-height;
 	background: $bg-color-old;
 	z-index: 120;
-	opacity: 1.0;
+	opacity: 0.95;
 	transition: all 0.3s ease 0s;
 	@media(max-width: 1400px) {
 		height: $menu-small-height;
@@ -1019,16 +1125,16 @@ p {
 .menu-item {
 	text-decoration: none;
 	width: auto;
-	height: 33px;
 	color: $white-color;
-	font-family: "Roboto";
-	font-size: 34px;
+	font-family: "Regular";
+	font-size: 20px;
 	font-weight: 400;
-	letter-spacing: -0.82px;
+	letter-spacing: 1;
 	line-height: 31px;
 	cursor: pointer;
 	margin: 15px 0 15px 30px;
 	text-align: center;
+	vertical-align: middle;
 }
 
 $menu-item-height: 12px;
@@ -1037,7 +1143,6 @@ $menu-item-height: 12px;
 	height: calc(#{$menu-item-height} * 15);
 	display: block;
 	text-align: left;
-	font-size: 12px;
 }
 
 .menu-item.first.active {

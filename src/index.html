@@ -7,6 +7,8 @@
 	<meta name="description" content=""> 
 	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<link href="/static/css/slick.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/slick.theme.css" type="text/css" rel="stylesheet">
 	<script src="//code-ya.jivosite.com/widget/XDd1J8wbCE" async></script>
 </head>
 <script>
@@ -15,12 +17,11 @@
 		//element.scrollIntoView({ behavior: 'smooth', block: 'end' });
 		let scrollTop = window.pageYOffset || element.scrollTop
    		const windowWidth = window.innerWidth;
-   		let menuHeight = 123;
+   		let menuHeight = 60;
 		if (windowWidth <= 1400) menuHeight = 80;
 		if (windowWidth <= 960) menuHeight = 40;
 		if (selector == 'mission') menuHeight = 0;
-		const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight;
-		console.log(selector)  
+		const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight; 
 		window.parent.scrollTo({
 			top: finalOffset,
 			behavior: 'smooth'
@@ -65,46 +66,53 @@
 			</div>
 		</section>
 		<section id="work" class="mission">
-			<div class="container work">
-				<div class="jobs">
-					<div class="jobs-item">
-						<h2 id="6" style="margin-top: 5px;">Russian talents</h2>
-						<p class="light">
-							Applications create to find activities for childrens, parents and teachers.
-						</p>
-					</div>
-					<div class="jobs-item">
-						<h2 id="2">Ulindr</h2>
-						<p class="light">
-							Dating application startup.(Madrid, San Francisco)
-						</p>
-					</div>
-					<div class="jobs-item">	
-						<h2 id="3">gazprom seha liga</h2>
-						<p class="light">
-							Applications for Gazprom SEHA Liga. Create for fans of handball.
-						</p>
-					</div>
-					<div class="jobs-item">	
-						<h2 id="5">MInt Food</h2>
-						<p class="light">
-							Food delivery company. (St. Petersburg (Russia))
-						</p>
-					</div>	
-					<div class="jobs-item">	
-						<h2 id="1">Craft Beer Online</h2>
-						<p class="light">
-							Beer online catalog
-						</p>
-					</div>			
-				</div>
-				<div class="examples">
-					<div class="preload-one-image"></div>
-					<div class="preload-all-images"></div>
-					<div class="carousel">
-
-					</div>
-				</div>
+			<div class="slider" id="slider">
+				<picture>
+					<source srcset="/static/images/seha.jpg" type="image/jpeg"> 
+					<img src="/static/images/seha.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/mint.jpg" type="image/jpeg"> 
+					<img src="/static/images/mint.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/ulindr.jpg" type="image/jpeg"> 
+					<img src="/static/images/ulindr.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/beer.jpg" type="image/jpeg"> 
+					<img src="/static/images/beer.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/player.jpg" type="image/jpeg"> 
+					<img src="/static/images/player.jpg" alt="">
+				</picture>
+			</div>
+			<div class="slider-mobile" id="slider-mobile">
+				<picture>
+					<source srcset="/static/images/seha-small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/seha-small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/mint_small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/mint_small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/ulindr-small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/ulindr-small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/beer_small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/beer_small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/player_small.jpg" type="image/jpeg"> 
+					<img src="/static/images/player_small.jpg" alt="">
+				</picture>
+			</div>
+			<div class="nav">
+				<div class="prev"></div>
+				<div class="next"></div>
 			</div>
 		</section>
 		<section id="team" class="team">
@@ -190,8 +198,27 @@
 			      document.getElementById('map'), {zoom: 13, center: uluru});
 			  var marker = new google.maps.Marker({position: uluru, map: map});
 			}
-    </script>
+		</script>
+		<script src="/static/js/jquery-3.4.1.min.js"></script>
+		<script src="/static/js/jquery-migrate-1.4.1.min.js"></script>
+		<script src="/static/js/slick.min.js"></script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZKammD-89k3aYI3mRsRAFKzLP66to7MU&callback=initMap&language=en&region=UK"type="text/javascript"></script>
+		<script>
+			$('.slider').slick({
+				infinite: true,
+				prevArrow: $('.prev'),
+				nextArrow: $('.next'),
+				slidesToShow: 1,
+				slidesToScroll: 1
+			});
+			$('.slider-mobile').slick({
+				infinite: true,
+				dots: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false
+			});
+		</script>
 	</div>
 </body>
 </html>

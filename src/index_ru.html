@@ -1,4 +1,4 @@
-<html lang="ru">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Appsidol</title>
@@ -7,30 +7,32 @@
 	<meta name="description" content=""> 
 	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-	<script src="//code-ya.jivosite.com/widget/xvrc6iVAlr" async></script>
+	<link href="/static/css/slick.css" type="text/css" rel="stylesheet">
+	<link href="/static/css/slick.theme.css" type="text/css" rel="stylesheet">
+	<script src="//code-ya.jivosite.com/widget/XDd1J8wbCE" async></script>
 </head>
 <script>
 	function toAnchor(selector) {
 		var element = document.querySelector('#' + selector);
 		//element.scrollIntoView({ behavior: 'smooth', block: 'end' });
 		let scrollTop = window.pageYOffset || element.scrollTop
-   	const windowWidth = window.innerWidth;
-   	let menuHeight = 123;
+   		const windowWidth = window.innerWidth;
+   		let menuHeight = 60;
 		if (windowWidth <= 1400) menuHeight = 80;
 		if (windowWidth <= 960) menuHeight = 40;
 		if (selector == 'mission') menuHeight = 0;
-  	const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight;
-	  window.parent.scrollTo({
-	    top: finalOffset,
-	    behavior: 'smooth'
-	  })
+		const finalOffset = element.getBoundingClientRect().top + scrollTop - menuHeight; 
+		window.parent.scrollTo({
+			top: finalOffset,
+			behavior: 'smooth'
+		})
 	}
 </script>
 <body>
 	<div class="wrapper">
 		<header class="header" id="header">
 			<div class="container">
-				<div class="container menu top clear" id="topMenu">
+				<div class="container menu top clear" id="top-menu">
 					<div class="burger-button top"><span></span></div>
 					<a href="javascript:toAnchor('mission')" class="menu-item first">Миссия</a>
 					<a href="javascript:toAnchor('work')" class="menu-item">Работы</a>
@@ -64,46 +66,53 @@
 			</div>
 		</section>
 		<section id="work" class="mission">
-			<div class="container work">
-				<div class="jobs">
-					<div class="jobs-item">
-						<h2 id="6" style="margin-top: 5px;">ТАЛАНТЫ РОССИИ</h2>
-						<p class="light">
-							Приложение для поиска занятий для детей и их родителей. Учителя могут преподавать
-						</p>
-					</div>
-					<div class="jobs-item">
-						<h2 id="2">Ulindr</h2>
-						<p class="light">
-							Стартап приложения знакомств для девушек
-						</p>
-					</div>
-					<div class="jobs-item">	
-						<h2 id="3">gazprom seha liga</h2>
-						<p class="light">
-							Приложения для Gazprom SEHA Liga. Создано для фанатов гандбола
-						</p>
-					</div>
-					<div class="jobs-item">	
-						<h2 id="5">MInt Food</h2>
-						<p class="light">
-							Приложение по доставке еды
-						</p>
-					</div>	
-					<div class="jobs-item">	
-						<h2 id="1">CraftBeer</h2>
-						<p class="light">
-							Магазин по продаже пива
-						</p>
-					</div>			
-				</div>
-				<div class="examples">
-					<div class="preload-one-image"></div>
-					<div class="preload-all-images"></div>
-					<div class="carousel">
-
-					</div>
-				</div>
+			<div class="slider" id="slider">
+				<picture>
+					<source srcset="/static/images/seha.jpg" type="image/jpeg"> 
+					<img src="/static/images/seha.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/mint.jpg" type="image/jpeg"> 
+					<img src="/static/images/mint.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/ulindr.jpg" type="image/jpeg"> 
+					<img src="/static/images/ulindr.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/beer.jpg" type="image/jpeg"> 
+					<img src="/static/images/beer.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/player.jpg" type="image/jpeg"> 
+					<img src="/static/images/player.jpg" alt="">
+				</picture>
+			</div>
+			<div class="slider-mobile" id="slider-mobile">
+				<picture>
+					<source srcset="/static/images/seha-small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/seha-small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/mint_small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/mint_small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/ulindr-small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/ulindr-small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/beer_small.jpg" type="image/jpeg"> 
+					<img data-lazy="/static/images/beer_small.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="/static/images/player_small.jpg" type="image/jpeg"> 
+					<img src="/static/images/player_small.jpg" alt="">
+				</picture>
+			</div>
+			<div class="nav">
+				<div class="prev"></div>
+				<div class="next"></div>
 			</div>
 		</section>
 		<section id="team" class="team">
@@ -189,8 +198,27 @@
 			      document.getElementById('map'), {zoom: 13, center: uluru});
 			  var marker = new google.maps.Marker({position: uluru, map: map});
 			}
-    </script>
+		</script>
+		<script src="/static/js/jquery-3.4.1.min.js"></script>
+		<script src="/static/js/jquery-migrate-1.4.1.min.js"></script>
+		<script src="/static/js/slick.min.js"></script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZKammD-89k3aYI3mRsRAFKzLP66to7MU&callback=initMap&language=ru&region=RU"type="text/javascript"></script>
+		<script>
+			$('.slider').slick({
+				infinite: true,
+				prevArrow: $('.prev'),
+				nextArrow: $('.next'),
+				slidesToShow: 1,
+				slidesToScroll: 1
+			});
+			$('.slider-mobile').slick({
+				infinite: true,
+				dots: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false
+			});
+		</script>
 	</div>
 </body>
 </html>

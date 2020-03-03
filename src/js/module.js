@@ -5,11 +5,23 @@ if (process.env.NODE_ENV !== 'production') {
 import App from './app';
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
+const windowWidth = window.innerWidth;
+
+const slider = document.querySelector('#slider');
+const sliderMobile = document.querySelector('#slider-mobile');
+const nav = document.querySelector('div[class="nav"]');
+
+if (windowWidth <= 800) {
+	slider.classList.add('clear');
+	nav.classList.add('clear');
+}
+else {
+	sliderMobile.classList.add('clear');
+}
 
 const container = document.querySelector('div[class="container"]');
 const containerHeight = container.clientHeight;
 
-const windowWidth = window.innerWidth;
 const appHeight = () => {
 	console.log('width', container.clientWidth)
 	console.log('height', container.clientHeight)
@@ -20,7 +32,6 @@ const appHeight = () => {
 //document.addEventListener('resize', appHeight)
 appHeight()
 console.log(document.documentElement.clientHeight)
-
 const windowHeight = window.innerHeight;
 const containerWidth = container.clientWidth;
 const sectionMission = document.querySelector('#mission');
@@ -36,7 +47,7 @@ window.onscroll = () => {
 	const windowTop = window.scrollY;
 	const windowBottom = windowTop + windowHeight
 	let exclude;
-	let menuHeight = 123;
+	let menuHeight = 60;
 	if (windowWidth <= 1400) menuHeight = 80;
 	if (windowWidth <= 960) menuHeight = 40;
 	if (windowWidth > 640) {
@@ -77,7 +88,7 @@ import 'babel-polyfill';
 import '../../src/scss/style.scss';
 import { Carousel, Menu } from './design'
 
-Carousel();
+//Carousel();
 
 Menu();
 
