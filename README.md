@@ -1,4 +1,4 @@
-Актуальный образец RU: https://idol-aed01.firebaseapp.com/index_RU_4748fb58b322d0c5.html
+Актуальный образец RU: https://idol-aed01.firebaseapp.com/index_RU_cc7b2c1f89e3f81d.html
 
-Актуальный образец EN: https://idol-aed01.firebaseapp.com/index_EN_ca469140a679f7a6.html
+Актуальный образец EN: https://idol-aed01.firebaseapp.com/index_EN_cd20c7a70efbb0f2.html
 
