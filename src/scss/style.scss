@@ -1110,6 +1110,17 @@ p {
 	}
 }
 
+.lang-link {
+	position: absolute;
+	font-family: Roboto;
+	font-size: 12px;
+	right: 8%;
+}
+
+.lang-link.active {
+	margin-top: 12px;
+}
+
 .burger-button.active:before {
 	transform: rotate(45deg);
 	top: 13px;

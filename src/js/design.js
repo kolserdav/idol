@@ -5,7 +5,9 @@ function $(){}
 	// Управляет работой меню
 export function Menu() {
 	// Нажатие кнопки
+	const langLink = document.querySelector('.lang-link');
 	const clickMenuHandler = (button) => {
+		langLink.classList.toggle('active');
 		button.classList.toggle('active');
 		button.parentElement.classList.toggle('active');
 		const items = button.parentElement.querySelectorAll('.menu-item');

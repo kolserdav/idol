@@ -943,14 +943,15 @@ p {
 
 .burger-button {
   display: none;
+  width: 40px;
+  height: 30px;
   margin: 20px 20px 20px 40px; }
 
 @media (max-width: 640px) {
   .burger-button {
     display: block;
     position: relative;
-    width: 40px;
-    height: 30px; }
+    top: 0; }
   .burger-button:before,
   .burger-button:after {
     content: '';
@@ -975,6 +976,15 @@ p {
   .menu-item {
     display: none; } }
 
+.lang-link {
+  position: absolute;
+  font-family: Roboto;
+  font-size: 12px;
+  right: 8%; }
+
+.lang-link.active {
+  margin-top: 12px; }
+
 .burger-button.active:before {
   transform: rotate(45deg);
   top: 13px; }
@@ -990,9 +1000,9 @@ p {
   text-decoration: none;
   width: auto;
   color: #ffffff;
-  font-family: "Regular";
+  font-family: 'Roboto', fantasy;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 1;
   line-height: 31px;
   cursor: pointer;
