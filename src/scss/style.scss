@@ -249,7 +249,7 @@ section#contacts {
 		height: calc(100vh - 30vh - #{$menu-small-height});
 	}
 	@media(max-width: 960px) {
-		height: calc(100vh - 30vh -(#{$menu-small-height} / 2));
+		height: calc(100vh - 30vh - (#{$menu-small-height} / 2));
 		margin-top: calc(30vh - (#{$menu-small-height} / 2));
 	}
 	@media(max-width: 720px) {
