@@ -1,7 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Uglify = require("uglifyjs-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const express = require('express');
 
@@ -15,9 +14,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
-    minimizer: [
-      new Uglify()
-    ],
     splitChunks: {
       chunks: 'all',
     },
